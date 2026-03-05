@@ -313,7 +313,7 @@ Native Claude Code Teams/TaskList. No custom state files.
 ## Release Timeline
 
 ```
-    v3.2  ●━━━ Auto-update with consent
+    v3.2  ●━━━ Auto-update, MECE intent routing, protocol crash fix
           │
     v3.1  ●━━━ Polymath co-pilot — the 14th skill
           │
