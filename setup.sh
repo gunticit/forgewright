@@ -12,7 +12,7 @@
 set -euo pipefail
 
 # Configuration
-REPO_URL="https://github.com/antigravity-code/antigravity-code-production-grade-plugin.git"
+REPO_URL="https://github.com/buiphucminhtam/forge17.git"
 SUBMODULE_PATH=".antigravity/plugins/production-grade"
 BRANCH="main"
 

@@ -46,25 +46,25 @@ Forge17 orchestrates 17 specialized AI skills to build production-ready software
 
 ```bash
 # macOS/Linux — download & install as git submodule
-curl -sO https://raw.githubusercontent.com/antigravity-code/antigravity-code-production-grade-plugin/main/setup.sh
+curl -sO https://raw.githubusercontent.com/buiphucminhtam/forge17/main/setup.sh
 chmod +x setup.sh && ./setup.sh install
 
 # Windows (PowerShell)
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/antigravity-code/antigravity-code-production-grade-plugin/main/setup.ps1" -OutFile "setup.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/buiphucminhtam/forge17/main/setup.ps1" -OutFile "setup.ps1"
 .\setup.ps1 install
 ```
 
 ### Option B: Manual Git Submodule
 
 ```bash
-git submodule add -b main https://github.com/antigravity-code/antigravity-code-production-grade-plugin.git .antigravity/plugins/production-grade
+git submodule add -b main https://github.com/buiphucminhtam/forge17.git .antigravity/plugins/production-grade
 git add .gitmodules .antigravity/ && git commit -m "feat: add production-grade plugin v5.1"
 ```
 
 ### Option C: Standalone Clone
 
 ```bash
-git clone https://github.com/antigravity-code/antigravity-code-production-grade-plugin.git
+git clone https://github.com/buiphucminhtam/forge17.git
 ```
 
 Then say: *"Build a production-grade SaaS for [your idea]"* — or *"Help me think about [your idea]"* if you want the Polymath co-pilot first.

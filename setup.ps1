@@ -17,7 +17,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 # Configuration
-$RepoUrl = "https://github.com/antigravity-code/antigravity-code-production-grade-plugin.git"
+$RepoUrl = "https://github.com/buiphucminhtam/forge17.git"
 $SubmodulePath = ".antigravity/plugins/production-grade"
 $Branch = "main"
 
