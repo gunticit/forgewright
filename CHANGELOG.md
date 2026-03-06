@@ -2,6 +2,21 @@
 
 All notable changes to the Production Grade Plugin.
 
+## [4.2.0] — 2026-03-06
+
+### Added
+- **Adaptive routing** — orchestrator now analyzes the user's request and routes to the right skills automatically. No longer requires full pipeline for every task.
+- **10 execution modes**: Full Build, Feature, Harden, Ship, Test, Review, Architect, Document, Explore, Optimize, Custom. Each with appropriate skill composition, gates, and parallelism.
+- **Request classification** — automatic intent detection maps user requests to modes. "Add auth to my API" → Feature mode (PM + Architect + Backend + QA). "Review my code" → Review mode (Code Reviewer only).
+- **Execution plan presentation** — user sees which skills will run and can adjust, escalate to full pipeline, or proceed.
+- **Custom mode** — multi-select skill menu for requests that don't fit standard patterns.
+- **Lightweight mode execution** — non-Full-Build modes skip unnecessary overhead (engagement/parallelism prompts only for 3+ skill modes).
+
+### Changed
+- Plugin description broadened from "build a complete production-ready system" to "any software engineering work that benefits from structured, production-quality execution."
+- "When to Use" expanded to cover: adding features, hardening, deploying, testing, reviewing, documenting, optimizing, exploring — not just greenfield builds.
+- Full Build pipeline preserved unchanged as one mode within the adaptive orchestrator.
+
 ## [4.1.0] — 2026-03-05
 
 ### Added

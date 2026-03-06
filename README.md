@@ -2,15 +2,16 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/nagisanzenin/claude-code-production-grade-plugin?style=social)](https://github.com/nagisanzenin/claude-code-production-grade-plugin)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-4.1.0-blue.svg)]()
+[![Version](https://img.shields.io/badge/version-4.2.0-blue.svg)]()
 [![Skills](https://img.shields.io/badge/skills-14-green.svg)]()
+[![Modes](https://img.shields.io/badge/modes-10-purple.svg)]()
 [![Parallel Points](https://img.shields.io/badge/parallel%20points-10+-orange.svg)]()
 
-**From "I have an idea" to production-ready SaaS. One prompt. Zero hand-holding.**
+**14 skills for all software engineering work. Not just greenfield builds.**
 
-Most AI coding tools generate files. This one builds *systems* — architecture, tests, security audits, infrastructure, monitoring, documentation — with a co-pilot that thinks with you before a single line of code is written.
+Build a complete SaaS from scratch, add a feature to existing code, harden before launch, set up CI/CD, write tests, review code quality — the orchestrator routes to the right skills automatically.
 
-> **v4.1** — 4 engagement modes. Scale-driven architecture fitness function. Adaptive PM & Architect interviews. 14 skills. Two-wave parallel execution. ~3x faster, ~45% fewer tokens. Polymath co-pilot. Brownfield-safe.
+> **v4.2** — Adaptive routing with 10 execution modes. Smart request classification. Full greenfield builds, feature additions, code hardening, deployment, testing, review, architecture, documentation, exploration, optimization. 4 engagement modes. Scale-driven architecture. Quality-first parallelism.
 
 ### Quick Start
 
@@ -328,6 +329,8 @@ Native Claude Code Teams/TaskList. No custom state files.
 ## Release Timeline
 
 ```
+    v4.2  ●━━━ Adaptive routing, 10 execution modes, everyday SWE work support
+          │
     v4.1  ●━━━ Engagement modes, scale-driven architecture fitness function, adaptive interviews
           │
     v4.0  ●━━━ Two-wave parallelism, internal skill agents, dynamic task generation
