@@ -1,15 +1,16 @@
-# Production Grade Plugin for Antigravity
+# 🔨 Forge17
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-5.1.0-blue.svg)]()
 [![Skills](https://img.shields.io/badge/skills-17-green.svg)]()
 [![Modes](https://img.shields.io/badge/modes-12-purple.svg)]()
+[![Vibe Coded](https://img.shields.io/badge/vibe-coded_%F0%9F%8E%B5-ff69b4.svg)]()
 
-**17 skills for all software engineering work. From idea to production-ready SaaS.**
+**17 AI Skills. One Pipeline. Production Grade.**
 
-Build a complete SaaS from scratch, design UI/UX systems, develop cross-platform mobile apps, add features to existing code, harden before launch, set up CI/CD, write tests, review code quality — the orchestrator routes to the right skills automatically.
+Forge17 orchestrates 17 specialized AI skills to build production-ready software from scratch. Design UI/UX, develop web + mobile, test, secure, deploy — one prompt, full dev team.
 
-> **v5.1** — 3 new skills (ui-designer, mobile-engineer, prompt engineering), 5 existing skill upgrades (Playwright testing, changelog generation, brainstorming frameworks, branch strategy). Pipeline preserved: `DEFINE→BUILD→HARDEN→SHIP→SUSTAIN`. Now 17 skills with 12 execution modes.
+> Built from [claude-code-production-grade-plugin](https://github.com/nagisanzenin/claude-code-production-grade-plugin) and [awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills). Entirely vibe coded — the skills evaluated and upgraded themselves. 🎵
 
 ### Release Timeline
 
@@ -426,5 +427,5 @@ MIT
 ---
 
 <p align="center">
-  <strong>From idea to production-ready SaaS. One prompt. 17 expert AI skills. Your co-pilot included.</strong>
+  <strong>Forge17 — 17 AI skills forging production code. One prompt. Full pipeline. Your co-pilot included. ⭐</strong>
 </p>
