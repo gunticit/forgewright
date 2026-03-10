@@ -367,6 +367,26 @@ All skills read this file at startup to adapt their depth. The engagement mode c
 - **Phase summaries** — Thorough/Meticulous show intermediate outputs between phases.
 - **Gate detail** — Meticulous adds per-skill output review at each gate.
 
+5b. **Execution strategy:**
+
+Notify user via notify_user:
+
+```
+How should the pipeline execute independent tasks?
+
+1. **Parallel (Recommended for Full Build)** — Independent tasks run in separate git worktrees simultaneously. Faster, uses more resources. Tasks with dependencies still run sequentially.
+2. **Sequential** — All tasks run one at a time. Slower but simpler. Best for small projects or debugging.
+3. **Chat about this** — Learn more about parallel vs sequential execution.
+```
+
+Append to `Antigravity-Production-Grade-Suite/.orchestrator/settings.md`:
+```markdown
+Execution: [parallel|sequential]
+Max_Workers: 4
+```
+
+When **Parallel** is selected, the BUILD and HARDEN phases use the parallel-dispatch skill (`skills/parallel-dispatch/SKILL.md`) to spawn git worktrees, distribute Task Contracts, and merge results. When **Sequential** is selected, the pipeline behaves as before.
+
 6. **Detect existing workspace** — if `Antigravity-Production-Grade-Suite/.orchestrator/` has prior state, offer to resume or restart via notify_user.
 
 7. **Polymath pre-flight check:**
@@ -448,10 +468,11 @@ All phases complete. [summary]. Ship it?
 4. **Chat about this** — Free-form input about production readiness
 ```
 
-## Task Dependency Graph — Sequential Execution
+## Task Dependency Graph
 
-Sequential task execution with clear dependency tracking. The orchestrator reads the architecture output (number of services, pages, modules) and generates tasks accordingly.
+Task execution with clear dependency tracking. The orchestrator reads the architecture output (number of services, pages, modules) and generates tasks accordingly. Supports both **sequential** and **parallel** execution based on `settings.md`.
 
+### Sequential Mode (default)
 ```
 T1: product-manager (BRD)
     ↓ [GATE 1]
@@ -475,6 +496,38 @@ T12: skill-maker
     ↓
 T13: Compound Learning + Assembly
 ```
+
+### Parallel Mode
+```
+T1: product-manager (BRD)
+    ↓ [GATE 1]
+T2: solution-architect (Architecture)
+    ↓ [GATE 2]
+    ┌────────────────────── Parallel Group A (BUILD) ─────────────────┐
+    │ T3a: software-engineer ──── worktree: .worktrees/T3a           │
+    │ T3b: frontend-engineer ──── worktree: .worktrees/T3b           │
+    │ T3c: mobile-engineer   ──── worktree: .worktrees/T3c  [cond.] │
+    └────────────────── validate → merge → integration test ─────────┘
+    T4a: devops (depends on merged T3a output)
+    ↓ (code written)
+    ┌────────────────────── Parallel Group B (HARDEN) ────────────────┐
+    │ T5:  qa-engineer       ──── worktree: .worktrees/T5            │
+    │ T6a: security-engineer ──── worktree: .worktrees/T6a           │
+    │ T6b: code-reviewer     ──── worktree: .worktrees/T6b           │
+    └────────────────── validate → merge → integration test ─────────┘
+    ↓
+T7: devops (IaC + CI/CD)
+T8: remediation (HARDEN fixes)
+T9: sre (SLOs + chaos + capacity)
+T10: data-scientist (conditional on AI/ML)
+    ↓ [GATE 3]
+T11: technical-writer (API ref + dev guides)
+T12: skill-maker
+    ↓
+T13: Compound Learning + Assembly
+```
+
+When parallel mode is active, the orchestrator reads `skills/parallel-dispatch/SKILL.md` for the dispatch flow.
 
 ### Task Dependencies
 
@@ -511,13 +564,13 @@ After Gate 2 (architecture approved), the orchestrator reads the architecture ou
 
 ## Phase Execution
 
-Each phase loads its dispatcher file for task management.
+Each phase loads its dispatcher file for task management. In parallel mode, BUILD and HARDEN phases additionally invoke the parallel-dispatch skill.
 
-| Phase | File | Tasks |
-|-------|------|-------|
-| DEFINE | `phases/define.md` | T1, T2 |
-| BUILD | `phases/build.md` | T3a, T3b, T4a |
-| HARDEN | `phases/harden.md` | T5, T6a, T6b |
+| Phase | File | Tasks | Parallel Support |
+|-------|------|-------|------------------|
+| DEFINE | `phases/define.md` | T1, T2 | No (gate-protected) |
+| BUILD | `phases/build.md` | T3a, T3b, T3c, T4a | Yes (Group A) |
+| HARDEN | `phases/harden.md` | T5, T6a, T6b | Yes (Group B) |
 | SHIP | `phases/ship.md` | T7, T8, T9, T10 |
 | SUSTAIN | `phases/sustain.md` | T11, T12, T13 |
 

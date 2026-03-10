@@ -1,6 +1,6 @@
 # BUILD Phase — Dispatcher
 
-This phase manages tasks T3a (Backend), T3b (Frontend), T3c (Mobile, conditional), and T4 (DevOps Containerization). T3a-T3c can run in parallel with progress tracking.
+This phase manages tasks T3a (Backend), T3b (Frontend), T3c (Mobile, conditional), and T4 (DevOps Containerization). Supports both **parallel** and **sequential** execution.
 
 ## Pre-Flight
 
@@ -9,6 +9,36 @@ Read `.production-grade.yaml` to determine:
 - `features.mobile` → if false, skip T3c (also skip if BRD has no mobile requirements)
 - `project.architecture` → monolith vs microservices (affects containerization)
 - `paths.services`, `paths.frontend`, `paths.mobile`, `paths.shared_libs` → output locations
+
+Read `Antigravity-Production-Grade-Suite/.orchestrator/settings.md` to determine execution mode.
+
+## Execution Mode Check
+
+**If `Execution: parallel`:**
+
+Read `skills/parallel-dispatch/SKILL.md` and follow its instructions for Group A (BUILD):
+
+```
+1. Generate Task Contracts for T3a, T3b, T3c (based on skip conditions)
+2. Create git worktrees via scripts/worktree-manager.sh
+3. Dispatch workers (one Gemini CLI instance per worktree)
+4. Collect DELIVERY.json from each worker
+5. Validate via task-validator protocol
+6. Merge via merge-arbiter protocol
+7. After merge: execute T4 (DevOps) sequentially (depends on T3a output)
+```
+
+Contract inputs for each task are defined in parallel-dispatch/SKILL.md § Phase 2.
+
+**After parallel merge completes**, continue to T4 below, then to Completion section.
+
+**If `Execution: sequential`** (or setting not found):
+
+Execute tasks in order: T3a → T3b → T3c → T4 as described below.
+
+---
+
+## Sequential Execution (or T4 after parallel merge)
 
 ## T3a: Backend Engineering
 

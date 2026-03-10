@@ -1,6 +1,6 @@
 # HARDEN Phase — Dispatcher
 
-This phase manages tasks T5 (QA), T6a (Security), T6b (Code Review). Sequential execution with authority boundaries.
+This phase manages tasks T5 (QA), T6a (Security), T6b (Code Review). Supports both **parallel** and **sequential** execution with strict authority boundaries.
 
 ## Authority Boundaries — CRITICAL
 
@@ -9,6 +9,37 @@ Enforce these boundaries strictly:
 - **code-reviewer** does architecture conformance, code quality, performance — does NOT perform security review
 - **code-reviewer** is READ-ONLY — produces findings and patch files, does NOT modify source code
 - See `Antigravity-Production-Grade-Suite/.protocols/conflict-resolution.md` for full authority table
+
+## Execution Mode Check
+
+Read `Antigravity-Production-Grade-Suite/.orchestrator/settings.md` to determine execution mode.
+
+**If `Execution: parallel`:**
+
+Read `skills/parallel-dispatch/SKILL.md` and follow its instructions for Group B (HARDEN):
+
+```
+1. Generate Task Contracts for T5, T6a, T6b
+   — CRITICAL: T6a contract MUST include "SOLE OWASP authority" in constraints
+   — CRITICAL: T6b contract MUST include "NO security review, READ-ONLY" in constraints
+2. Create git worktrees via scripts/worktree-manager.sh
+3. Dispatch workers (one per worktree)
+4. Collect DELIVERY.json from each worker
+5. Validate via task-validator protocol (extra checks: authority boundary violations)
+6. Merge findings (workspace artifacts only — no code modifications)
+```
+
+**Authority boundaries apply even in parallel mode.** Each worker's CONTRACT.json explicitly restricts their scope. If a worker produces security findings but is NOT security-engineer, the findings are rejected.
+
+**After parallel collection completes**, continue to Post-HARDEN: Remediation Preparation.
+
+**If `Execution: sequential`** (or setting not found):
+
+Execute tasks in order: T5 → T6a → T6b as described below.
+
+---
+
+## Sequential Execution
 
 ## T5: QA Testing
 
