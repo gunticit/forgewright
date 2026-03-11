@@ -4,7 +4,7 @@
 
 ## What is Forge17?
 
-Forge17 is an adaptive orchestrator with **18 AI skills** (17 domain skills + 1 parallel dispatcher) that covers the entire software development lifecycle. From a single code review to a full greenfield build, it routes to the right skills automatically. Supports **parallel execution** via git worktrees for faster builds.
+Forge17 is an adaptive orchestrator with **19 AI skills** (17 domain skills + 1 parallel dispatcher + 1 memory manager) that covers the entire software development lifecycle. From a single code review to a full greenfield build, it routes to the right skills automatically. Supports **parallel execution** via git worktrees for faster builds.
 
 **Pipeline:** `DEFINE → BUILD → HARDEN → SHIP → SUSTAIN`
 
@@ -74,10 +74,12 @@ All 17 skills are in the `skills/` directory:
 | Mobile Engineer | `skills/mobile-engineer/SKILL.md` |
 | Shared Protocols | `skills/_shared/protocols/` |
 | Parallel Dispatch | `skills/parallel-dispatch/SKILL.md` |
+| Memory Manager | `skills/memory-manager/SKILL.md` |
 | Task Contract Protocol | `skills/_shared/protocols/task-contract.md` |
 | Task Validator Protocol | `skills/_shared/protocols/task-validator.md` |
 | Merge Arbiter Protocol | `skills/_shared/protocols/merge-arbiter.md` |
 | Worktree Manager | `scripts/worktree-manager.sh` |
+| Memory CLI | `scripts/mem0-cli.py` |
 
 ## Configuration
 

@@ -1,0 +1,3 @@
+
+# Memory embeddings cache (derived from memory.jsonl)
+.forge17/embeddings.db
