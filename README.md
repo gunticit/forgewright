@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
-  <img src="https://img.shields.io/badge/version-7.1.0-blue.svg" alt="Version" />
+  <img src="https://img.shields.io/badge/version-7.1.1-blue.svg" alt="Version" />
   <img src="https://img.shields.io/badge/skills-47-brightgreen.svg" alt="Skills" />
   <img src="https://img.shields.io/badge/modes-19-blueviolet.svg" alt="Modes" />
   <img src="https://img.shields.io/badge/vibe-coded_%F0%9F%8E%B5-ff69b4.svg" alt="Vibe Coded" />
@@ -42,6 +42,10 @@ If Forge17 helps you ship faster, you can support the project here:
 ## Release Timeline
 
 ```
+2026-03-15  v7.1.1●━━━ Memory Manager Overhaul — TF-IDF search (cosine similarity),
+                  │     value-weighted GC, markdown-aware chunking, lifecycle hooks wired,
+                  │     refresh command, structured fact extraction. Zero external deps.
+                  │
 2026-03-14  v7.1  ●━━━ Business Analyst — Requirements gatekeeper with 6W1H elicitation,
                   │     Zero Assumption Doctrine, critical evaluation (Red Team),
                   │     strict Information Gate. New Analyze mode. 47 total skills.
@@ -173,7 +177,7 @@ The orchestrator auto-classifies your request and routes to the right skills:
 | **production-grade** | Smart routing orchestrator — 19 modes, auto-classifies, dependency-based task graph |
 | **polymath** | Creative partner + grounded researcher — 6 modes: research (+ NotebookLM MCP), ideate, advise, onboard, translate, synthesize |
 | **parallel-dispatch** | Git worktree-based parallel execution with Task Contracts and anti-hallucination |
-| **memory-manager** | Cross-session context persistence via mem0 |
+| **memory-manager** | Cross-session memory — TF-IDF search, value-weighted GC, lifecycle hooks |
 | **skill-maker** | Self-extending system — generates 3-5 project-specific custom skills |
 
 ### ⚙️ Core Engineering (20)
@@ -383,6 +387,7 @@ CEO Agent (Orchestrator)
 | **3 approval gates** | Everything between gates is fully autonomous |
 | **12 shared protocols** | UX, input validation, tool efficiency, conflict resolution, task contracts, project onboarding, session lifecycle, quality gate, brownfield safety, quality dashboard |
 | **Quality scoring** | 0-100 per-skill scoring with A-F grades, cross-session trending |
+| **Persistent memory** | TF-IDF search, auto-refresh, lifecycle hooks — survives session resets |
 | **4 engagement modes** | Express, Standard, Thorough, Meticulous |
 
 ---
