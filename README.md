@@ -1,23 +1,33 @@
-# 🔨 Forge17
+<p align="center">
+  <img src="assets/forge17-banner.png" alt="Forge17 Banner" width="100%" />
+</p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-6.1.0-blue.svg)]()
-[![Skills](https://img.shields.io/badge/skills-46-green.svg)]()
-[![Modes](https://img.shields.io/badge/modes-18-purple.svg)]()
-[![Game Dev](https://img.shields.io/badge/game_dev-Unity_Unreal_Godot_Roblox-FF4500.svg)]()
-[![Research](https://img.shields.io/badge/research-NotebookLM_MCP-00A67E.svg)]()
-[![Testing](https://img.shields.io/badge/testing-Midscene_Vision-FF6B35.svg)]()
-[![Growth](https://img.shields.io/badge/growth-Marketing_CRO-E91E63.svg)]()
-[![Parallel](https://img.shields.io/badge/parallel-worktrees-orange.svg)]()
-[![Vibe Coded](https://img.shields.io/badge/vibe-coded_%F0%9F%8E%B5-ff69b4.svg)]()
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
+  <img src="https://img.shields.io/badge/version-6.1.0-blue.svg" alt="Version" />
+  <img src="https://img.shields.io/badge/skills-46-brightgreen.svg" alt="Skills" />
+  <img src="https://img.shields.io/badge/modes-18-blueviolet.svg" alt="Modes" />
+  <img src="https://img.shields.io/badge/vibe-coded_%F0%9F%8E%B5-ff69b4.svg" alt="Vibe Coded" />
+</p>
 
-**46 AI Skills. Full Lifecycle. Research → Build → Test → Ship → Market → Game Dev → XR.**
+<p align="center">
+  <img src="https://img.shields.io/badge/🎮_Game_Dev-Unity_·_Unreal_·_Godot_·_Roblox-FF4500.svg" alt="Game Dev" />
+  <img src="https://img.shields.io/badge/🔬_Research-NotebookLM_MCP-00A67E.svg" alt="Research" />
+  <img src="https://img.shields.io/badge/🧪_Testing-Midscene_Vision_AI-FF6B35.svg" alt="Testing" />
+  <img src="https://img.shields.io/badge/📈_Growth-Marketing_·_CRO-E91E63.svg" alt="Growth" />
+  <img src="https://img.shields.io/badge/⚡_Parallel-Git_Worktrees-orange.svg" alt="Parallel" />
+</p>
 
-> *"One prompt to research, design, build, test, secure, deploy, market, and grow — plus build complete games for Unity, Unreal, Godot, and Roblox."*
+<h3 align="center">46 AI Skills · 18 Modes · Full Lifecycle Pipeline</h3>
 
-Forge17 is an AI pipeline that orchestrates **46 specialized skills** across **6 phases** and **18 execution modes** to take a product from idea to market. The only AI pipeline that covers the **complete lifecycle** — from SaaS to AAA games: DEFINE → BUILD → HARDEN → SHIP → SUSTAIN → **GROW**.
+<p align="center">
+  <strong>Research → Design → Build → Test → Secure → Deploy → Market → Grow</strong><br />
+  <em>The only AI pipeline that covers the complete lifecycle — from SaaS to AAA games.</em>
+</p>
 
-> Built from [claude-code-production-grade-plugin](https://github.com/nagisanzenin/claude-code-production-grade-plugin), [awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills), and [agency-agents](https://github.com/msitarzewski/agency-agents). Entirely vibe coded — the skills evaluated and upgraded themselves. 🎵
+<p align="center">
+  <sub>Built from <a href="https://github.com/nagisanzenin/claude-code-production-grade-plugin">claude-code-production-grade-plugin</a>, <a href="https://github.com/ComposioHQ/awesome-claude-skills">awesome-claude-skills</a>, and <a href="https://github.com/msitarzewski/agency-agents">agency-agents</a>. Entirely vibe coded 🎵</sub>
+</p>
 
 ---
 
