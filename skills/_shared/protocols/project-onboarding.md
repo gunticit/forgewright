@@ -43,6 +43,44 @@ find_by_name(".editorconfig"), find_by_name("biome.json")
 
 **Output:** Populate `fingerprint` section of project profile.
 
+## Phase 1.5 — Code Intelligence (Optional Enhancement)
+
+Build a knowledge graph of the codebase for deep structural analysis. Powered by [GitNexus](https://github.com/abhigyanpatwari/GitNexus).
+
+**Skip if:** `gitnexus` CLI is not installed, OR project has <10 source files, OR `.gitnexus/` exists and is <24h old.
+
+```
+1. Check CLI:
+   command -v gitnexus || npx gitnexus --version
+   → If not found: SKIP, set code_intelligence.indexed = false, log warning
+
+2. Index codebase:
+   gitnexus analyze              # Build knowledge graph (AST → relationships → clusters)
+   gitnexus analyze --skills     # Generate per-community SKILL.md files
+
+3. Verify index:
+   - Check .gitnexus/ directory created
+   - Count symbols, relationships, communities from index
+
+4. Populate profile:
+   code_intelligence: {
+     indexed: true,
+     engine: "gitnexus",
+     symbols_count: N,
+     relationships_count: N,
+     communities_count: N,
+     processes_count: N,
+     index_path: ".gitnexus/",
+     indexed_at: "ISO-8601",
+     mcp_available: true,
+     skills_generated: ["community-a", "community-b", ...]
+   }
+```
+
+**Error handling:** If `gitnexus analyze` fails (timeout, parse error, etc.), mark as `code_intelligence.indexed = false` — never fail onboarding because of Code Intelligence. Log the error for debugging.
+
+**Output:** Populate `code_intelligence` section of project profile. See `code-intelligence.md` protocol for usage by downstream skills.
+
 ## Phase 2 — Health Check
 
 Run project health checks based on detected stack:

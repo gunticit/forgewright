@@ -16,6 +16,7 @@ description: >
 !`cat Antigravity-Production-Grade-Suite/.protocols/input-validation.md 2>/dev/null || true`
 !`cat Antigravity-Production-Grade-Suite/.protocols/tool-efficiency.md 2>/dev/null || true`
 !`cat Antigravity-Production-Grade-Suite/.protocols/graceful-failure.md 2>/dev/null || true`
+!`cat Antigravity-Production-Grade-Suite/.protocols/code-intelligence.md 2>/dev/null || true`
 !`cat .production-grade.yaml 2>/dev/null || echo "No config — using defaults"`
 !`cat Antigravity-Production-Grade-Suite/.orchestrator/codebase-context.md 2>/dev/null || true`
 

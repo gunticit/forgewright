@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/version-7.2.0-blue.svg" alt="Version" />
   <img src="https://img.shields.io/badge/skills-47-brightgreen.svg" alt="Skills" />
   <img src="https://img.shields.io/badge/modes-19-blueviolet.svg" alt="Modes" />
-  <img src="https://img.shields.io/badge/protocols-13-00CED1.svg" alt="Protocols" />
+  <img src="https://img.shields.io/badge/protocols-14-00CED1.svg" alt="Protocols" />
   <img src="https://img.shields.io/badge/vibe-coded_%F0%9F%8E%B5-ff69b4.svg" alt="Vibe Coded" />
 </p>
 
@@ -19,7 +19,7 @@
   <img src="https://img.shields.io/badge/⚡_Parallel-Git_Worktrees-orange.svg" alt="Parallel" />
 </p>
 
-<h3 align="center">47 AI Skills · 19 Modes · 13 Protocols · Full Lifecycle Pipeline</h3>
+<h3 align="center">47 AI Skills · 19 Modes · 14 Protocols · Full Lifecycle Pipeline</h3>
 
 <p align="center">
   <strong>Research → Design → Build → Test → Secure → Deploy → Market → Grow</strong><br />
@@ -392,12 +392,13 @@ CEO Agent (Orchestrator)
 | **4 game engines** | Unity, Unreal Engine, Godot, Roblox |
 | **XR platforms** | Quest, Vision Pro, WebXR, PCVR |
 | **Research Intelligence** | NotebookLM MCP — zero-hallucination, citation-backed |
+| **Code Intelligence** | GitNexus knowledge graph — impact analysis, call chains, community clustering, pre-commit risk |
 | **Smart Test Selection** | Phase 0: auto-assess target → recommend Playwright / Midscene / Page Agent |
 | **Vision Testing** | Midscene.js — AI-powered, cross-platform (web + Android + iOS) |
 | **Go-to-Market** | SEO, AEO/GEO, copywriting, campaigns, funnel CRO, A/B testing |
 | **Parallel dispatch** | Git worktree-based with anti-hallucination pipeline |
 | **3 approval gates** | Everything between gates is fully autonomous |
-| **13 shared protocols** | UX, input validation, tool efficiency, conflict resolution, task contracts, project onboarding, session lifecycle, quality gate, brownfield safety, quality dashboard, graceful failure |
+| **14 shared protocols** | UX, input validation, tool efficiency, conflict resolution, task contracts, project onboarding, session lifecycle, quality gate, brownfield safety, quality dashboard, graceful failure, code intelligence |
 | **Quality scoring** | 0-100 per-skill scoring with A-F grades, cross-session trending |
 | **Persistent memory** | TF-IDF search, auto-refresh, lifecycle hooks — survives session resets |
 | **4 engagement modes** | Express, Standard, Thorough, Meticulous |
@@ -557,6 +558,9 @@ TypeScript, Go, Python, Rust, Java, C++ (Unreal), C# (Unity), GDScript (Godot), 
 **Do I need all 47 skills?**
 No. The orchestrator only activates what you need. A backend API may use 8 skills. A full game may use 20+. The BA skill only activates when information gaps are detected.
 
+**What is Code Intelligence?**
+Built-in knowledge graph engine (powered by GitNexus) that indexes your codebase's AST, maps call chains, clusters functional areas, and provides impact analysis. Installed via `npm install -g gitnexus`, auto-indexed during `/onboard`. Gives skills 360° awareness of code relationships.
+
 **What is Page Agent DOM testing?**
 A lightweight technique from Alibaba that converts DOM to text instead of screenshots. Works with text-only LLMs (like MiniMax), costs ~$0.001/step. QA Phase 0 auto-recommends it when appropriate.
 
@@ -586,7 +590,7 @@ MIT
 ---
 
 <p align="center">
-  <strong>Forgewright — 47 AI skills. 19 modes. 13 protocols. SaaS to AAA games. One prompt. Idea to market. ⭐</strong>
+  <strong>Forgewright — 47 AI skills. 19 modes. 14 protocols. SaaS to AAA games. One prompt. Idea to market. ⭐</strong>
 </p>
 <p align="center">
   <em>Validate with zero assumptions. Research with zero hallucinations. Test with smart technique selection. Build games with Unity/Unreal/Godot/Roblox. Ship with quality scoring. Grow with data.</em>

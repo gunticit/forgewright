@@ -130,6 +130,7 @@ All 47 skills are in the `skills/` directory:
 | Brownfield Safety Protocol | `skills/_shared/protocols/brownfield-safety.md` |
 | Quality Dashboard Protocol | `skills/_shared/protocols/quality-dashboard.md` |
 | Graceful Failure Protocol | `skills/_shared/protocols/graceful-failure.md` |
+| Code Intelligence Protocol | `skills/_shared/protocols/code-intelligence.md` |
 | Worktree Manager | `scripts/worktree-manager.sh` |
 | Memory CLI | `scripts/mem0-cli.py` |
 | Mobile Test Setup | `scripts/mobile-test-setup.sh` |

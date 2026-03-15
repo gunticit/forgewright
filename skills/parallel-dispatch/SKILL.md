@@ -64,6 +64,9 @@ Based on the Forge17 task dependency graph, these groups can run in parallel:
    - Wave 1: Tasks with NO inter-dependencies (T3a, T3b, T3c)
    - Wave 2: Tasks depending on Wave 1 output (T4 depends on T3a)
    - If total tasks ≤ MAX_WORKERS: single wave
+   - If Code Intelligence is available (code_intelligence.indexed == true):
+     use community clusters to refine task boundaries — each functional
+     community maps to a potential worktree scope, improving isolation
 ```
 
 ### Phase 2 — Contract Generation

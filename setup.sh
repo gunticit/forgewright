@@ -28,7 +28,7 @@ BOLD='\033[1m'
 print_header() {
     echo ""
     echo -e "${CYAN}╔══════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${CYAN}║${NC}  ${BOLD}Production Grade Plugin${NC} — 18 Skills for Antigravity     ${CYAN}║${NC}"
+    echo -e "${CYAN}║${NC}  ${BOLD}Forgewright${NC} — 47 Skills for Antigravity              ${CYAN}║${NC}"
     echo -e "${CYAN}╚══════════════════════════════════════════════════════════╝${NC}"
     echo ""
 }
@@ -100,9 +100,10 @@ cmd_install() {
     echo -e "  ${BOLD}Parallel:${NC}         Git worktree-based parallel execution"
     echo ""
     echo -e "  ${BOLD}Next steps:${NC}"
-    echo -e "  1. Commit the submodule: ${CYAN}git add .gitmodules $SUBMODULE_PATH && git commit -m 'feat: add production-grade plugin v$version'${NC}"
-    echo -e "  2. Start building: ${CYAN}\"Build a production-grade SaaS for [your idea]\"${NC}"
-    echo -e "  3. Check for updates: ${CYAN}./setup.sh status${NC}"
+    echo -e "  1. Commit the submodule: ${CYAN}git add .gitmodules $SUBMODULE_PATH && git commit -m 'feat: add forgewright v$version'${NC}"
+    echo -e "  2. Install Code Intelligence (optional): ${CYAN}npm install -g gitnexus${NC}"
+    echo -e "  3. Start building: ${CYAN}\"Build a production-grade SaaS for [your idea]\"${NC}"
+    echo -e "  4. Check for updates: ${CYAN}./setup.sh status${NC}"
     echo ""
 }
 
