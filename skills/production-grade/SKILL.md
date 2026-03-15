@@ -436,25 +436,25 @@ Run AFTER update check, BEFORE mode classification. Follows `skills/_shared/prot
 **Step 0.5 — session start:**
 
 1. **Load project profile:**
-   - If `.forge17/project-profile.json` exists and is fresh (<24h) → load context, skip re-onboarding
+   - If `.forgewright/project-profile.json` exists and is fresh (<24h) → load context, skip re-onboarding
    - If stale → re-run health check only (project-onboarding Phase 2)
    - If missing → run full project onboarding (see `skills/_shared/protocols/project-onboarding.md`)
 
 2. **Load last session state:**
-   - If `.forge17/session-log.json` exists with interrupted session → offer resume via notify_user
+   - If `.forgewright/session-log.json` exists with interrupted session → offer resume via notify_user
    - If last session completed → log summary, continue to new request
    - If first session → continue normally
 
 3. **Load memory context:**
    - If memory-manager configured → retrieve top-5 project context (max 800 tokens)
-   - If not configured → read `.forge17/code-conventions.md` if exists
+   - If not configured → read `.forgewright/code-conventions.md` if exists
 
 4. **Detect manual changes:**
    - If git available → check commits since last session
    - If structural changes detected → re-run onboarding fingerprint + patterns
 
 5. **Display quality trend** (if history exists):
-   - Read `.forge17/quality-history.json` → show trend of last 5 sessions
+   - Read `.forgewright/quality-history.json` → show trend of last 5 sessions
 
 Log: `✓ Session context loaded — [project name], last session: [summary or "first session"]`
 
@@ -495,7 +495,7 @@ Read these from the plugin's `skills/_shared/protocols/` directory and copy them
 
 4. **Codebase discovery — detect greenfield vs brownfield:**
 
-   **If project onboarding already ran** (Step 0.5 loaded `.forge17/project-profile.json`) → use cached fingerprint data. Otherwise, run scans:
+   **If project onboarding already ran** (Step 0.5 loaded `.forgewright/project-profile.json`) → use cached fingerprint data. Otherwise, run scans:
 
    Run these scans in parallel:
    ```
@@ -513,13 +513,13 @@ Read these from the plugin's `skills/_shared/protocols/` directory and copy them
    | Source files exist, no `.production-grade.yaml` | **Brownfield (unmapped)** | Deep onboarding, generate config, adapt |
    | Source files + `.production-grade.yaml` exist | **Brownfield (mapped)** | Use config paths, augment existing code |
 
-   **If Greenfield** → log `✓ Greenfield project — creating from scratch`. Write minimal `.forge17/project-profile.json` (to be populated progressively). Continue to step 5.
+   **If Greenfield** → log `✓ Greenfield project — creating from scratch`. Write minimal `.forgewright/project-profile.json` (to be populated progressively). Continue to step 5.
 
    **If Brownfield** → run the enhanced adaptation sequence:
 
    a. **Deep project onboarding** — run full `skills/_shared/protocols/project-onboarding.md` if not already done in Step 0.5. This produces:
-      - `.forge17/project-profile.json` — full fingerprint, health, patterns, risk
-      - `.forge17/code-conventions.md` — coding patterns for all skills to follow
+      - `.forgewright/project-profile.json` — full fingerprint, health, patterns, risk
+      - `.forgewright/code-conventions.md` — coding patterns for all skills to follow
 
    b. **Structure report** — display from project profile:
    ```
@@ -556,23 +556,23 @@ Read these from the plugin's `skills/_shared/protocols/` directory and copy them
    Language: [detected]
    Framework: [detected]
    Existing paths: [mapping]
-   Code conventions: .forge17/code-conventions.md
-   Project profile: .forge17/project-profile.json
+   Code conventions: .forgewright/code-conventions.md
+   Project profile: .forgewright/project-profile.json
 
    ## Rules for all agents
    - Don't overwrite existing files without explicit user approval — blindly replacing files can destroy production-critical configuration or break existing consumers that depend on current signatures
-   - READ .forge17/code-conventions.md and MATCH existing code style
+   - READ .forgewright/code-conventions.md and MATCH existing code style
    - ADD to existing directories, don't replace them
    - If a file exists at the target path, create alongside it or extend it
    - Existing tests must still pass after changes (verified by quality-gate)
-   - Check .forge17/project-profile.json → risk.protected_paths before writing
+   - Check .forgewright/project-profile.json → risk.protected_paths before writing
    ```
 
    f. **Activate brownfield safety net** — follow `skills/_shared/protocols/brownfield-safety.md`:
-      - Create session branch: `forge17/session-{timestamp}`
+      - Create session branch: `forgewright/session-{timestamp}`
       - Snapshot baseline (existing tests pass count)
       - Register protected paths
-      - Log: `✓ Safety net active — branch: forge17/session-{timestamp}, baseline: [N] tests`
+      - Log: `✓ Safety net active — branch: forgewright/session-{timestamp}, baseline: [N] tests`
 
    All skills read codebase-context.md and code-conventions.md before executing.
 
@@ -762,7 +762,7 @@ Write analysis report to `Antigravity-Production-Grade-Suite/.orchestrator/scope
 
 When **Parallel** is selected, the BUILD and HARDEN phases use the parallel-dispatch skill (`skills/parallel-dispatch/SKILL.md`) to spawn git worktrees, distribute Task Contracts, and merge results. When **Sequential** is selected, the pipeline behaves as before.
 
-6. **Detect existing workspace & load memory** — if `Antigravity-Production-Grade-Suite/.orchestrator/` has prior state, use session-lifecycle resume protocol. If `.forge17/session-log.json` has interrupted state, offer resume. Otherwise offer clean start via notify_user.
+6. **Detect existing workspace & load memory** — if `Antigravity-Production-Grade-Suite/.orchestrator/` has prior state, use session-lifecycle resume protocol. If `.forgewright/session-log.json` has interrupted state, offer resume. Otherwise offer clean start via notify_user.
    - **Memory load:** Run `python3 scripts/mem0-cli.py search "<project-name> <user-request-keywords>" --limit 5 --format compact` to retrieve relevant project context. Inject results into your context for this session.
    - If no results or memory is empty, run `python3 scripts/mem0-cli.py refresh` once to bootstrap memory from project files.
 
@@ -1107,7 +1107,7 @@ Every skill execution follows:
 4. **Self-debug** — read errors, identify root cause. After 3 failures: stop and report.
 5. **Quality bar** — no TODOs, no stubs. All code compiles. All tests pass. Quality score ≥ 70.
 6. **TDD enforced** — write test first, watch fail, implement, watch pass, refactor.
-7. **Convention compliance** — read `.forge17/code-conventions.md` (if brownfield) and match existing patterns.
+7. **Convention compliance** — read `.forgewright/code-conventions.md` (if brownfield) and match existing patterns.
 
 ## Partial Execution
 
@@ -1135,8 +1135,8 @@ The dashboard includes:
 - **Acceptance** — BRD criteria coverage, traceability
 - **Pipeline stats** — mode, duration, skills run, files changed
 
-**Machine-readable output:** `.forge17/quality-report-{session}.json`
-**Quality trending:** `.forge17/quality-history.json` (appended each session)
+**Machine-readable output:** `.forgewright/quality-report-{session}.json`
+**Quality trending:** `.forgewright/quality-history.json` (appended each session)
 
 Also display the legacy summary for backward compatibility:
 ```
@@ -1154,7 +1154,7 @@ Also display the legacy summary for backward compatibility:
 ║                                                              ║
 ║  Workspace: Antigravity-Production-Grade-Suite/              ║
 ║  Config: .production-grade.yaml                              ║
-║  Report: .forge17/quality-report-{session}.json              ║
+║  Report: .forgewright/quality-report-{session}.json              ║
 ╚══════════════════════════════════════════════════════════════╝
 ```
 
@@ -1164,7 +1164,7 @@ For ALL brownfield projects (any mode, not just Full Build), activate the safety
 
 | Safety Layer | When | Action |
 |-------------|------|--------|
-| Git branch | Pre-pipeline | Create `forge17/session-{timestamp}` branch |
+| Git branch | Pre-pipeline | Create `forgewright/session-{timestamp}` branch |
 | Baseline snapshot | Pre-pipeline | Run existing tests, record pass count |
 | Protected paths | Pre-pipeline | Register paths that must not be modified |
 | Regression checks | After T3a, T3b, T5 | Verify existing tests still pass |
@@ -1191,7 +1191,7 @@ For ALL brownfield projects (any mode, not just Full Build), activate the safety
 | Not leveraging skill architecture | Even though execution is sequential, each skill's internal phase structure ensures quality. Foundations before dependent work. |
 | Duplicating security review | code-reviewer references security-engineer findings |
 | Skipping quality gate | EVERY skill output must pass quality-gate.md — no exceptions, even in sequential mode |
-| Ignoring code conventions in brownfield | Read `.forge17/code-conventions.md` BEFORE writing code. Match existing patterns. |
+| Ignoring code conventions in brownfield | Read `.forgewright/code-conventions.md` BEFORE writing code. Match existing patterns. |
 | Modifying protected paths | Check brownfield-safety protected paths before ANY file write |
 | No regression check in brownfield | After EACH build skill, verify existing tests still pass against baseline |
 | Not saving session state | Call session lifecycle hooks at every phase/task/gate completion |

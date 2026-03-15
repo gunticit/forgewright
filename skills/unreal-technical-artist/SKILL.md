@@ -6,7 +6,7 @@ description: >
   and art pipeline automation.
   Routed via the production-grade orchestrator (Game Build mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [unreal, niagara, materials, lumen, nanite, vfx, shaders, tech-art]
 ---
 

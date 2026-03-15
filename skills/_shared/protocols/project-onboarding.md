@@ -4,10 +4,10 @@
 
 ## When to Run
 
-- **First time** Forge17 is invoked in a project (no `.forge17/project-profile.json` exists)
+- **First time** Forge17 is invoked in a project (no `.forgewright/project-profile.json` exists)
 - **On explicit `/onboard`** command from user
 - **When manual changes detected** (session-lifecycle protocol detects drift)
-- **Skip if** `.forge17/project-profile.json` exists AND is less than 24 hours old AND no git changes since last onboarding
+- **Skip if** `.forgewright/project-profile.json` exists AND is less than 24 hours old AND no git changes since last onboarding
 
 ## Phase 1 — Fingerprint (Parallel Scans)
 
@@ -187,7 +187,7 @@ Read 3-5 representative source files to detect coding patterns:
    - Low (<50%) → note as inconsistent, don't enforce
 ```
 
-**Output:** Write `patterns` section to project profile AND `.forge17/code-conventions.md` (human-readable).
+**Output:** Write `patterns` section to project profile AND `.forgewright/code-conventions.md` (human-readable).
 
 ## Phase 4 — Risk Assessment
 
@@ -222,7 +222,7 @@ Read 3-5 representative source files to detect coding patterns:
 
 ## Phase 5 — Profile Generation
 
-Write `.forge17/project-profile.json`:
+Write `.forgewright/project-profile.json`:
 
 ```json
 {
@@ -269,7 +269,7 @@ Write `.forge17/project-profile.json`:
     "protected_paths": [".env*", "prisma/migrations/**", ".github/**"],
     "protected_branches": ["main", "production"]
   },
-  "forge17": {
+  "forgewright": {
     "version": "7.0.0",
     "onboarded_at": "ISO-8601",
     "last_session": null,
@@ -278,9 +278,9 @@ Write `.forge17/project-profile.json`:
 }
 ```
 
-Also write `.forge17/code-conventions.md` — human-readable version of patterns section for developers.
+Also write `.forgewright/code-conventions.md` — human-readable version of patterns section for developers.
 
-Also ensure `.forge17/.gitignore` is created:
+Also ensure `.forgewright/.gitignore` is created:
 
 ```
 # Session-specific (never commit)
@@ -309,7 +309,7 @@ Tests:     142 passing (78% coverage)
 Health:    ✓ Build OK | ⚠ 23 lint errors | ⚠ 1 CVE (medium)
 Risk:      4.1/10 (low-moderate)
 Patterns:  camelCase, feature-based, Zustand
-Profile:   .forge17/project-profile.json
+Profile:   .forgewright/project-profile.json
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

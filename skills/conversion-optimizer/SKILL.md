@@ -6,7 +6,7 @@ description: >
   designs A/B test experiments, builds growth loops, and prevents churn.
   Activated in the GROW phase alongside Growth Marketer. Routed via the production-grade orchestrator.
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [cro, conversion, ab-testing, growth, retention, funnel, churn]
 ---
 

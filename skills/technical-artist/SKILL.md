@@ -6,7 +6,7 @@ description: >
   Maintains visual fidelity within hard performance constraints.
   Routed via the production-grade orchestrator (Game Build mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [shaders, vfx, lod, performance, hlsl, shader-graph, niagara, materials, tech-art]
 ---
 

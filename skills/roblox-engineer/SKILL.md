@@ -6,7 +6,7 @@ description: >
   avatar systems, monetization, and moderation.
   Routed via the production-grade orchestrator (Game Build mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [roblox, luau, roblox-studio, experience, datastore, avatar, game-development]
 ---
 

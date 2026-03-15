@@ -5,7 +5,7 @@ description: >
   custom render passes, URP/HDRP materials, procedural effects, and post-processing.
   Routed via the production-grade orchestrator (Game Build mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [unity, shaders, shader-graph, hlsl, urp, hdrp, materials, post-processing, vfx]
 ---
 

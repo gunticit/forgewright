@@ -132,9 +132,9 @@ After EACH build task (T3a, T3b, T3c, T4), run the Universal Quality Gate Protoc
 1. **Per-skill quality gate** — verify build, regression, standards, traceability
 2. **Brownfield regression check** — if brownfield project:
    - Run existing test suite
-   - Compare with baseline from `.forge17/baseline-{session}.json`
+   - Compare with baseline from `.forgewright/baseline-{session}.json`
    - If any previously-passing test now fails → REGRESSION → skill must fix before proceeding
-3. **Change manifest update** — log all file operations to `.forge17/change-manifest-{session}.json`
+3. **Change manifest update** — log all file operations to `.forgewright/change-manifest-{session}.json`
 4. **Session lifecycle hook** — call `TASK_COMPLETE(task_id, name, status, summary)`
 
 Display mini-scorecard after each task:

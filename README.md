@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/forge17-banner.png" alt="Forgewright Banner" width="100%" />
+  <img src="assets/forgewright-banner.png" alt="Forgewright Banner" width="100%" />
 </p>
 
 <p align="center">
@@ -155,7 +155,7 @@ Forgewright is self-discovering. Once installed, Antigravity reads `AGENTS.md` o
 | `/update` | Check for and install updates |
 | `/pipeline` | Show full pipeline reference, modes, and skill list |
 | `/setup-mobile-test` | Set up plug-and-play mobile testing (Android/iOS) |
-| `/onboard` | Deep project analysis — creates `.forge17/project-profile.json` |
+| `/onboard` | Deep project analysis — creates `.forgewright/project-profile.json` |
 
 ---
 
@@ -381,7 +381,7 @@ CEO Agent (Orchestrator)
 │  Phase 2:   Health Check ── build, tests, lint, CVEs       │
 │  Phase 3:   Pattern Analysis ── naming, style, arch        │
 │  Phase 4:   Risk Assessment ── tech debt, protected        │
-│  Phase 5:   Profile → .forge17/project-profile.json        │
+│  Phase 5:   Profile → .forgewright/project-profile.json        │
 │                                                            │
 │  📊 Quality Gate: runs after EVERY skill output            │
 │  Level 1: Build     │ Level 2: Regression (brownfield)     │

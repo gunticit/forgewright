@@ -6,7 +6,7 @@ description: >
   color contrast, ARIA patterns, and assistive technology testing.
   Routed via the production-grade orchestrator (Harden mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [accessibility, a11y, wcag, aria, screen-reader, keyboard, compliance, inclusive]
 ---
 

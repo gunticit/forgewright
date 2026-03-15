@@ -6,7 +6,7 @@ description: >
   replication-ready code, and Lyra-style gameplay frameworks.
   Routed via the production-grade orchestrator (Game Build mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [unreal-engine, cpp, blueprint, gas, nanite, lumen, multiplayer, game-development]
 ---
 

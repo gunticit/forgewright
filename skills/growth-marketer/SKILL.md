@@ -6,7 +6,7 @@ description: >
   email sequences, social content, and analytics tracking.
   Activated in the GROW phase after SHIP. Routed via the production-grade orchestrator.
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [marketing, seo, content, launch, copywriting, analytics, growth]
 ---
 

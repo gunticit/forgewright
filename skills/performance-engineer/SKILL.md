@@ -6,7 +6,7 @@ description: >
   Core Web Vitals, and capacity planning.
   Routed via the production-grade orchestrator (Optimize mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [performance, load-testing, profiling, optimization, latency, core-web-vitals, k6, artillery]
 ---
 

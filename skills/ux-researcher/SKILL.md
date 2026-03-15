@@ -6,7 +6,7 @@ description: >
   and data-driven design recommendations.
   Routed via the production-grade orchestrator (Design mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [ux, research, usability, personas, journey-mapping, interviews, heuristic]
 ---
 

@@ -6,7 +6,7 @@ description: >
   narrative-gameplay integration. Uses Ink/Yarn/generic dialogue formats.
   Routed via the production-grade orchestrator (Game Build mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [narrative, dialogue, branching, lore, character-voice, ink, yarn, storytelling]
 ---
 

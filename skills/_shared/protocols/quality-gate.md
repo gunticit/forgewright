@@ -39,7 +39,7 @@ Execute levels in order. Each level has a severity that determines whether to ST
 
 ```
 1. Existing tests still pass
-   - Read baseline test count from .forge17/project-profile.json
+   - Read baseline test count from .forgewright/project-profile.json
    - Run existing test suite
    - Compare: pass_count >= baseline_pass_count
    - IF any previously-passing test now fails → REGRESSION DETECTED → STOP
@@ -84,7 +84,7 @@ Execute levels in order. Each level has a severity that determines whether to ST
    - Unresolvable → WARN
 
 4. Convention compliance (brownfield only)
-   - IF .forge17/code-conventions.md exists:
+   - IF .forgewright/code-conventions.md exists:
      - Check naming convention matches (high-confidence patterns only)
      - Check file organization matches detected pattern
      - Deviations → WARN with suggestion
@@ -187,7 +187,7 @@ Overall: 97/100 (A) ████████████████████
 
 ## Metrics Storage
 
-Write quality metrics to `.forge17/quality-metrics.json` after each run:
+Write quality metrics to `.forgewright/quality-metrics.json` after each run:
 
 ```json
 {

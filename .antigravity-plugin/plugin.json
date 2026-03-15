@@ -1,5 +1,5 @@
 {
-  "name": "forge17",
+  "name": "forgewright",
   "description": "Adaptive AI pipeline orchestrator with 47 specialized skills and 19 execution modes. Covers the full software lifecycle — from greenfield builds, features, code review, testing, hardening, deployment, UI/UX design, mobile, to game development (Unity/Unreal/Godot/Roblox), XR, data engineering, MLOps, marketing, and business analysis. Smart routing with parallel execution via git worktrees.",
   "version": "7.3.0",
   "author": {
@@ -8,7 +8,7 @@
   "license": "MIT",
   "homepage": "https://github.com/buiphucminhtam/forgewright",
   "keywords": [
-    "forge17",
+    "forgewright",
     "production-grade",
     "orchestrator",
     "full-stack",

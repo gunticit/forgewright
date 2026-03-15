@@ -6,7 +6,7 @@ description: >
   server-authoritative logic, client prediction, and lobby systems.
   Routed via the production-grade orchestrator (Game Build mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [godot, multiplayer, networking, enet, websocket, prediction, replication]
 ---
 

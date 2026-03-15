@@ -6,7 +6,7 @@ description: >
   produces design documents consumed by Unity/Unreal/Godot engineers.
   Routed via the production-grade orchestrator (Game Build mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [game-design, gdd, gameplay-loop, economy, mechanics, balancing, progression]
 ---
 

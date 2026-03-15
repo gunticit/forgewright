@@ -48,7 +48,7 @@ Users can invoke these workflows directly:
 - `/update` — Check for and install updates
 - `/pipeline` — Show full pipeline reference and available modes
 - `/setup-mobile-test` — Set up plug-and-play mobile testing (Android/iOS)
-- `/onboard` — Run deep project analysis (creates `.forge17/project-profile.json`)
+- `/onboard` — Run deep project analysis (creates `.forgewright/project-profile.json`)
 
 ## Auto-Update Check
 
@@ -141,7 +141,7 @@ Optional: create `.production-grade.yaml` at project root to customize paths, pr
 
 ## Project State (v7.0)
 
-Forge17 maintains project state in the `.forge17/` directory:
+Forge17 maintains project state in the `.forgewright/` directory:
 - `project-profile.json` — Project fingerprint, health, patterns, risk (committed)
 - `code-conventions.md` — Detected coding patterns for consistency (committed)
 - `session-log.json` — Session history and resume state (gitignored)
@@ -153,7 +153,7 @@ Forge17 maintains project state in the `.forge17/` directory:
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
-This project is indexed by GitNexus as **forge17** (255 symbols, 383 relationships, 20 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+This project is indexed by GitNexus as **forgewright** (255 symbols, 383 relationships, 20 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
 > If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
 
@@ -169,7 +169,7 @@ This project is indexed by GitNexus as **forge17** (255 symbols, 383 relationshi
 
 1. `gitnexus_query({query: "<error or symptom>"})` — find execution flows related to the issue
 2. `gitnexus_context({name: "<suspect function>"})` — see all callers, callees, and process participation
-3. `READ gitnexus://repo/forge17/process/{processName}` — trace the full execution flow step by step
+3. `READ gitnexus://repo/forgewright/process/{processName}` — trace the full execution flow step by step
 4. For regressions: `gitnexus_detect_changes({scope: "compare", base_ref: "main"})` — see what your branch changed
 
 ## When Refactoring
@@ -208,10 +208,10 @@ This project is indexed by GitNexus as **forge17** (255 symbols, 383 relationshi
 
 | Resource | Use for |
 |----------|---------|
-| `gitnexus://repo/forge17/context` | Codebase overview, check index freshness |
-| `gitnexus://repo/forge17/clusters` | All functional areas |
-| `gitnexus://repo/forge17/processes` | All execution flows |
-| `gitnexus://repo/forge17/process/{name}` | Step-by-step execution trace |
+| `gitnexus://repo/forgewright/context` | Codebase overview, check index freshness |
+| `gitnexus://repo/forgewright/clusters` | All functional areas |
+| `gitnexus://repo/forgewright/processes` | All execution flows |
+| `gitnexus://repo/forgewright/process/{name}` | Step-by-step execution trace |
 
 ## Self-Check Before Finishing
 

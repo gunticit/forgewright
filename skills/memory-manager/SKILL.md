@@ -144,7 +144,7 @@ The orchestrator calls memory-manager at specific lifecycle points. All hooks ar
 
 ### Context Integration with Project Profile
 
-Memory works alongside `.forge17/project-profile.json`:
+Memory works alongside `.forgewright/project-profile.json`:
 - **Project Profile** = structural facts (stack, health, patterns) — always loaded
 - **Memory** = temporal facts (decisions, blockers, progress) — searched contextually
 - Together they provide full project context without re-scanning
@@ -189,13 +189,13 @@ Recency factor: today=1.0, 30 days ago=0.7, 90+ days ago=0.1.
 ## File Layout
 
 ```
-forge17/
+forgewright/
 ├── skills/memory-manager/
 │   └── SKILL.md              ← this file
 ├── scripts/
 │   └── mem0-cli.py           ← CLI tool (TF-IDF, JSONL, zero deps)
 ├── .memignore                ← exclusion patterns
-└── .forge17/
+└── .forgewright/
     ├── memory.jsonl          ← source of truth (committed to git)
     ├── project-profile.json  ← project fingerprint (committed)
     ├── code-conventions.md   ← detected patterns (committed)

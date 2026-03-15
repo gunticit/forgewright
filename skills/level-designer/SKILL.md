@@ -6,7 +6,7 @@ description: >
   design documents and blockout specifications consumed by engine engineers.
   Routed via the production-grade orchestrator (Game Build mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [level-design, encounters, pacing, blockout, environmental-storytelling, world-building]
 ---
 

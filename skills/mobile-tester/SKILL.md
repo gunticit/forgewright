@@ -7,7 +7,7 @@ description: >
   Activated when user wants to test on real mobile devices.
   Routed via the production-grade orchestrator.
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [mobile-testing, android, ios, midscene, adb, wda, vision-testing, e2e]
 ---
 

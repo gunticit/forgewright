@@ -8,7 +8,7 @@ description: >
   handing off to Product Manager.
   Routed via the production-grade orchestrator.
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [business-analysis, requirements, elicitation, feasibility, stakeholder, critical-evaluation]
 ---
 

@@ -6,7 +6,7 @@
 
 ### After Each Skill
 
-Update `.forge17/quality-metrics.json` with the latest quality gate results (from quality-gate.md).
+Update `.forgewright/quality-metrics.json` with the latest quality gate results (from quality-gate.md).
 
 Display mini-status in task_boundary:
 ```
@@ -87,14 +87,14 @@ Generated at pipeline completion. Replaces the existing `Final Summary Template`
 
 ## Machine-Readable Report
 
-Write `.forge17/quality-report-{session}.json` at pipeline completion:
+Write `.forgewright/quality-report-{session}.json` at pipeline completion:
 
 ```json
 {
   "schema_version": "1.0",
   "session_id": "session-20260314-1324",
   "generated_at": "ISO-8601",
-  "forge17_version": "7.0.0",
+  "forgewright_version": "7.0.0",
   "mode": "Full Build",
   "overall": {
     "score": 91,
@@ -140,7 +140,7 @@ Write `.forge17/quality-report-{session}.json` at pipeline completion:
     "files_created": 87,
     "files_modified": 12,
     "files_deleted": 0,
-    "session_branch": "forge17/session-20260314-1324"
+    "session_branch": "forgewright/session-20260314-1324"
   },
   "per_task_scores": [
     { "task_id": "T3a", "skill": "software-engineer", "score": 92, "grade": "A" },
@@ -152,7 +152,7 @@ Write `.forge17/quality-report-{session}.json` at pipeline completion:
 
 ## Quality Trend (Cross-Session)
 
-Append each session's quality summary to `.forge17/quality-history.json`:
+Append each session's quality summary to `.forgewright/quality-history.json`:
 
 ```json
 {

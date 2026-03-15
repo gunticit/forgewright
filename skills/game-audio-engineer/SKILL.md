@@ -6,7 +6,7 @@ description: >
   and mix management. Creates immersive soundscapes that reinforce gameplay.
   Routed via the production-grade orchestrator (Game Build mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [audio, sound-design, music, wwise, fmod, spatial-audio, adaptive-music, mix]
 ---
 

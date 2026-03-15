@@ -6,7 +6,7 @@ description: >
   and session management.
   Routed via the production-grade orchestrator (Game Build mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [unreal, multiplayer, replication, dedicated-server, networking, gas, prediction]
 ---
 

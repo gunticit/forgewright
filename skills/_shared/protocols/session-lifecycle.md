@@ -9,7 +9,7 @@ Every pipeline invocation begins here, BEFORE mode classification.
 ### Step 1 — Load Project Profile
 
 ```
-IF .forge17/project-profile.json exists:
+IF .forgewright/project-profile.json exists:
   Read it → set project context
   Check file age:
     IF < 24 hours AND no new git commits since onboarded_at:
@@ -27,7 +27,7 @@ ELSE:
 ### Step 2 — Load Last Session State
 
 ```
-IF .forge17/session-log.json exists:
+IF .forgewright/session-log.json exists:
   Read last_session entry
   Determine session state:
     IF last_session.status == "interrupted" OR "in_progress":
@@ -54,7 +54,7 @@ IF memory-manager is configured (MEM0_DISABLED != true):
   Inject results into prompt context (max 800 tokens)
   Log: "✓ Memory loaded: [N] relevant items"
 ELSE:
-  Read .forge17/code-conventions.md if exists
+  Read .forgewright/code-conventions.md if exists
   Log: "✓ Conventions loaded (memory not configured)"
 ```
 
@@ -82,7 +82,7 @@ The orchestrator calls these hooks at specific lifecycle points.
 Called after each pipeline phase completes (DEFINE, BUILD, HARDEN, SHIP, SUSTAIN).
 
 ```
-1. Update .forge17/session-log.json:
+1. Update .forgewright/session-log.json:
    {
      "session_id": "session-{YYYYMMDD-HHmm}",
      "started_at": "ISO-8601",
@@ -158,12 +158,12 @@ Called when pipeline completes OR when session is explicitly ended.
    Run: python3 scripts/mem0-cli.py refresh
 
 5. Update project profile:
-   .forge17/project-profile.json → forge17.last_session = session_id, total_sessions++
+   .forgewright/project-profile.json → forge17.last_session = session_id, total_sessions++
 ```
 
 ## Session Log Format
 
-`.forge17/session-log.json`:
+`.forgewright/session-log.json`:
 
 ```json
 {

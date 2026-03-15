@@ -3,7 +3,7 @@
 Forge17 Memory Manager CLI — persistent project memory, git-versioned.
 
 Storage:
-  .forge17/memory.jsonl  — source of truth, committed to git (compact, human-readable)
+  .forgewright/memory.jsonl  — source of truth, committed to git (compact, human-readable)
 
 Usage:
     python3 mem0-cli.py search <query> [--limit N] [--format compact|full]
@@ -39,8 +39,8 @@ from datetime import datetime, timedelta
 from collections import Counter
 
 # ── Constants ──
-FORGE17_DIR = ".forge17"
-MEMORY_LOG = os.path.join(FORGE17_DIR, "memory.jsonl")
+FORGEWRIGHT_DIR = ".forgewright"
+MEMORY_LOG = os.path.join(FORGEWRIGHT_DIR, "memory.jsonl")
 MEMIGNORE_FILE = ".memignore"
 MAX_MEMORIES_DEFAULT = 200
 
@@ -781,8 +781,8 @@ def cmd_gc(args):
 
 def cmd_setup(args):
     print("🔧 Forge17 Memory Manager Setup\n")
-    os.makedirs(FORGE17_DIR, exist_ok=True)
-    print(f"  ✅ {FORGE17_DIR}/ ready")
+    os.makedirs(FORGEWRIGHT_DIR, exist_ok=True)
+    print(f"  ✅ {FORGEWRIGHT_DIR}/ ready")
 
     if not Path(MEMIGNORE_FILE).exists():
         Path(MEMIGNORE_FILE).write_text(

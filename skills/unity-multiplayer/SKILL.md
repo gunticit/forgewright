@@ -6,7 +6,7 @@ description: >
   compensation, and matchmaking integration.
   Routed via the production-grade orchestrator (Game Build mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [unity, multiplayer, netcode, networking, relay, lobby, prediction, replication]
 ---
 

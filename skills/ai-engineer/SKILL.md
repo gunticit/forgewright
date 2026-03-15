@@ -6,7 +6,7 @@ description: >
   RAG optimization, and agent orchestration at scale.
   Routed via the production-grade orchestrator (AI Build mode).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [ai, ml, mlops, model-serving, fine-tuning, rag, agents, evaluation, llm]
 ---
 

@@ -6,7 +6,7 @@ description: >
   and retrospectives. Operational counterpart to Product Manager.
   Routed via the production-grade orchestrator (cross-cutting).
 version: 1.0.0
-author: forge17
+author: forgewright
 tags: [project-management, sprint, agile, scrum, kanban, jira, velocity, risk]
 ---
 
