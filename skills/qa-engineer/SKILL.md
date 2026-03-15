@@ -161,7 +161,7 @@ Execute each phase sequentially. Do NOT skip phases. Each phase builds on the ou
 
 ### Parallel Execution Strategy
 
-After Phase 1 (Test Planning), Phases 2-6 run in parallel — each test type is independent:
+After Phase 0 (Target Analysis) and Phase 1 (Test Planning), Phases 2-6 run in parallel — each test type is independent:
 
 ```python
 # After test plan is written, spawn all test types simultaneously:
@@ -177,15 +177,105 @@ Wait for all 5 agents to complete, then run Phase 7 (Test Infrastructure) sequen
 **Why this works:** Each test type reads source code independently and writes to its own directory. No conflicts. The test plan from Phase 1 provides shared context.
 
 **Execution order:**
-1. Phase 1: Test Planning (sequential — foundational)
-2. Phases 2-6: Unit + Integration + Contract + E2E + Performance (PARALLEL)
-3. Phase 7: Test Infrastructure (sequential — needs all test files)
+1. Phase 0: Target Analysis (sequential — determines technique)
+2. Phase 1: Test Planning (sequential — foundational, uses Phase 0 recommendation)
+3. Phases 2-6: Unit + Integration + Contract + E2E + Performance (PARALLEL)
+4. Phase 7: Test Infrastructure (sequential — needs all test files)
+
+---
+
+### Phase 0 — Test Technique Assessment
+
+**Goal:** Analyze the target website/application's technical characteristics to recommend the optimal testing technique BEFORE writing any test cases. This prevents wasted effort from using the wrong tool.
+
+**When to run:** Always first, before Phase 1. Especially critical when testing third-party websites, SPAs, or apps with canvas/WebGL elements.
+
+**Actions:**
+
+1. **Probe the target** — if a URL or running app is available:
+   ```
+   a. Open the target URL (or localhost) in browser
+   b. Inspect DOM structure:
+      - Count elements with data-testid or data-test attributes
+      - Count elements with ARIA roles/labels
+      - Detect <canvas>, <svg>, <video>, <iframe> usage
+      - Check for Shadow DOM / Web Components
+   c. Detect framework: React (data-reactroot), Vue (__vue__), Angular (ng-*), Svelte, vanilla
+   d. Check page complexity:
+      - Total interactive elements
+      - Dynamic content areas (infinite scroll, virtual lists)
+      - Client-side routing (SPA vs MPA)
+   ```
+
+2. **Assess access level:**
+   ```
+   | Access Level | Criteria | Available Techniques |
+   |-------------|----------|---------------------|
+   | Full control | Own codebase, can modify source | All techniques + Page Agent inject |
+   | Partial control | Can add data-testid, but can't inject scripts | Playwright + Midscene |
+   | No control | Third-party site, read-only access | Midscene vision + Page Agent Extension |
+   ```
+
+3. **Score and recommend** — evaluate each technique:
+
+   | Signal | Playwright Selectors | Midscene Vision | Page Agent DOM |
+   |--------|---------------------|-----------------|----------------|
+   | Has `data-testid` / ARIA labels | ⭐⭐⭐ Best | ⭐⭐ Good | ⭐⭐ Good |
+   | No test attributes, clean HTML | ⭐⭐ Usable | ⭐⭐⭐ Best | ⭐⭐⭐ Best |
+   | Canvas / WebGL / SVG charts | ❌ Cannot | ⭐⭐⭐ Only option | ❌ Cannot |
+   | Shadow DOM / Web Components | ⭐ Difficult | ⭐⭐⭐ Best | ⭐⭐ Partial |
+   | Heavy dynamic content (SPA) | ⭐⭐ With waits | ⭐⭐ With waits | ⭐⭐⭐ Best (live DOM) |
+   | Need speed / CI integration | ⭐⭐⭐ Fastest | ⭐ Slow (~3s/step) | ⭐⭐ Medium |
+   | Budget sensitive | ⭐⭐⭐ Free | ⭐⭐ ~$0.01/step | ⭐⭐⭐ ~$0.001/step |
+   | Cross-browser needed | ⭐⭐⭐ Native | ⭐⭐ Via Playwright | ❌ Chrome only |
+   | Mobile testing needed | ⭐⭐ Viewport emulation | ⭐⭐⭐ Real device | ❌ Web only |
+   | Own app, can inject script | ⭐⭐ Good | ⭐⭐ Good | ⭐⭐⭐ Best (cheapest) |
+   | Third-party site, no access | ⭐⭐ Good | ⭐⭐⭐ Best | ⭐⭐ Extension needed |
+
+4. **Generate recommendation:**
+
+   ```markdown
+   ## Test Technique Assessment
+
+   Target: [URL or app name]
+   Framework: [React / Vue / Angular / Vanilla / Unknown]
+   Access: [Full control / Partial / No control]
+
+   ### DOM Quality Score
+   - data-testid coverage: [N]% of interactive elements
+   - ARIA label coverage: [N]%
+   - Canvas/WebGL elements: [Yes/No]
+   - Shadow DOM: [Yes/No]
+   - Dynamic complexity: [Low/Medium/High]
+
+   ### Recommendation
+   | Technique | Fit Score | Use For |
+   |-----------|-----------|---------|
+   | [Primary] | ⭐⭐⭐ | [Main E2E flows, CI regression] |
+   | [Secondary] | ⭐⭐ | [Visual validation, canvas, fallback] |
+
+   ### Hybrid Strategy (if applicable)
+   - Use [Primary] for: [fast CI regression, selector-based flows]
+   - Use [Secondary] for: [visual verification, canvas elements, exploratory]
+   ```
+
+5. **Pass recommendation to Phase 1** — the test plan incorporates technique selection per test case:
+   - E2E tests reference the recommended technique
+   - Visual regression tests auto-select Midscene if canvas detected
+   - CI pipeline configured for the recommended stack
+
+**Output:** Write `Antigravity-Production-Grade-Suite/qa-engineer/technique-assessment.md`
+
+**Skip rules:**
+- If `qa-engineer/technique-assessment.md` already exists and target hasn't changed → skip, reuse
+- If testing backend-only (no frontend) → skip entirely, proceed to Phase 1
+- If user explicitly specifies technique ("use Playwright") → skip, use user choice
 
 ---
 
 ### Phase 1 — Test Planning
 
-**Goal:** Produce a traceability matrix linking every BRD acceptance criterion to concrete test cases, categorized by test type.
+**Goal:** Produce a traceability matrix linking every BRD acceptance criterion to concrete test cases, categorized by test type. **Use Phase 0's technique recommendation** to assign the optimal testing approach per test case.
 
 **Inputs to read:**
 - BRD / PRD acceptance criteria (every GIVEN/WHEN/THEN or equivalent)
