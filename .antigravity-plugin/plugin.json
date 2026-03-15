@@ -1,7 +1,7 @@
 {
   "name": "forge17",
-  "description": "Adaptive orchestrator for all software engineering work: 17 bundled skills, smart routing, 12 execution modes. From full greenfield builds to adding features, code review, testing, hardening, deployment, UI design, and mobile development.",
-  "version": "5.1.0",
+  "description": "Adaptive AI pipeline orchestrator with 47 specialized skills and 19 execution modes. Covers the full software lifecycle — from greenfield builds, features, code review, testing, hardening, deployment, UI/UX design, mobile, to game development (Unity/Unreal/Godot/Roblox), XR, data engineering, MLOps, marketing, and business analysis. Smart routing with parallel execution via git worktrees.",
+  "version": "7.1.1",
   "author": {
     "name": "buiphucminhtam"
   },
@@ -10,7 +10,6 @@
   "keywords": [
     "forge17",
     "production-grade",
-    "saas",
     "orchestrator",
     "full-stack",
     "meta-skill",
@@ -23,9 +22,23 @@
     "ai",
     "ml",
     "llm",
+    "mlops",
     "ui-design",
+    "ux-research",
     "mobile",
-    "playwright",
-    "prompt-engineering"
+    "game-dev",
+    "unity",
+    "unreal",
+    "godot",
+    "roblox",
+    "xr",
+    "data-engineering",
+    "accessibility",
+    "performance",
+    "prompt-engineering",
+    "saas",
+    "marketing",
+    "business-analysis",
+    "playwright"
   ]
 }
