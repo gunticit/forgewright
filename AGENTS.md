@@ -56,7 +56,7 @@ At the start of each session, silently check if a newer version is available:
 
 ```
 Current version: read VERSION file
-Remote version: compare with https://github.com/buiphucminhtam/forge17
+Remote version: compare with https://github.com/buiphucminhtam/forgewright
 ```
 
 If a newer version exists, mention it briefly: *"Forge17 update available (vX.X.X → vY.Y.Y). Run `/update` to upgrade."*

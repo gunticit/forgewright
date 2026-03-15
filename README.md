@@ -1,24 +1,25 @@
 <p align="center">
-  <img src="assets/forge17-banner.png" alt="Forge17 Banner" width="100%" />
+  <img src="assets/forge17-banner.png" alt="Forgewright Banner" width="100%" />
 </p>
 
 <p align="center">
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
-  <img src="https://img.shields.io/badge/version-7.1.1-blue.svg" alt="Version" />
+  <img src="https://img.shields.io/badge/version-7.2.0-blue.svg" alt="Version" />
   <img src="https://img.shields.io/badge/skills-47-brightgreen.svg" alt="Skills" />
   <img src="https://img.shields.io/badge/modes-19-blueviolet.svg" alt="Modes" />
+  <img src="https://img.shields.io/badge/protocols-13-00CED1.svg" alt="Protocols" />
   <img src="https://img.shields.io/badge/vibe-coded_%F0%9F%8E%B5-ff69b4.svg" alt="Vibe Coded" />
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/🎮_Game_Dev-Unity_·_Unreal_·_Godot_·_Roblox-FF4500.svg" alt="Game Dev" />
   <img src="https://img.shields.io/badge/🔬_Research-NotebookLM_MCP-00A67E.svg" alt="Research" />
-  <img src="https://img.shields.io/badge/🧪_Testing-Midscene_Vision_AI-FF6B35.svg" alt="Testing" />
+  <img src="https://img.shields.io/badge/🧪_Testing-Midscene_·_Page_Agent-FF6B35.svg" alt="Testing" />
   <img src="https://img.shields.io/badge/📈_Growth-Marketing_·_CRO-E91E63.svg" alt="Growth" />
   <img src="https://img.shields.io/badge/⚡_Parallel-Git_Worktrees-orange.svg" alt="Parallel" />
 </p>
 
-<h3 align="center">47 AI Skills · 19 Modes · Full Lifecycle Pipeline</h3>
+<h3 align="center">47 AI Skills · 19 Modes · 13 Protocols · Full Lifecycle Pipeline</h3>
 
 <p align="center">
   <strong>Research → Design → Build → Test → Secure → Deploy → Market → Grow</strong><br />
@@ -26,14 +27,14 @@
 </p>
 
 <p align="center">
-  <sub>Built from <a href="https://github.com/nagisanzenin/claude-code-production-grade-plugin">claude-code-production-grade-plugin</a>, <a href="https://github.com/ComposioHQ/awesome-claude-skills">awesome-claude-skills</a>, and <a href="https://github.com/msitarzewski/agency-agents">agency-agents</a>. Entirely vibe coded 🎵</sub>
+  <sub>Formerly Forge17. Built from <a href="https://github.com/nagisanzenin/claude-code-production-grade-plugin">claude-code-production-grade-plugin</a>, <a href="https://github.com/ComposioHQ/awesome-claude-skills">awesome-claude-skills</a>, and <a href="https://github.com/msitarzewski/agency-agents">agency-agents</a>. Entirely vibe coded 🎵</sub>
 </p>
 
 ---
 
 ## ☕ Support
 
-If Forge17 helps you ship faster, you can support the project here:
+If Forgewright helps you ship faster, you can support the project here:
 
 <img src="assets/donate/give-me-a-coffee-international.png" width="240" />
 
@@ -42,6 +43,14 @@ If Forge17 helps you ship faster, you can support the project here:
 ## Release Timeline
 
 ```
+2026-03-15  v7.2  ●━━━ Page Agent Patterns & Test Intelligence —
+                  │     Graceful Failure protocol (retry limits, stuck detection),
+                  │     ReAct structured reasoning for Debugger,
+                  │     LLM Data Pipeline Safety for Security Engineer,
+                  │     QA Phase 0: auto test technique assessment
+                  │     (Playwright vs Midscene vs Page Agent). 13 total protocols.
+                  │     Repo renamed: forge17 → forgewright.
+                  │
 2026-03-15  v7.1.1●━━━ Memory Manager Overhaul — TF-IDF search (cosine similarity),
                   │     value-weighted GC, markdown-aware chunking, lifecycle hooks wired,
                   │     refresh command, structured fact extraction. Zero external deps.
@@ -90,28 +99,30 @@ If Forge17 helps you ship faster, you can support the project here:
 
 ```bash
 # macOS/Linux — download & install as git submodule
-curl -sO https://raw.githubusercontent.com/buiphucminhtam/forge17/main/setup.sh
+curl -sO https://raw.githubusercontent.com/buiphucminhtam/forgewright/main/setup.sh
 chmod +x setup.sh && ./setup.sh install
 
 # Windows (PowerShell)
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/buiphucminhtam/forge17/main/setup.ps1" -OutFile "setup.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/buiphucminhtam/forgewright/main/setup.ps1" -OutFile "setup.ps1"
 .\setup.ps1 install
 ```
 
 ### Option B: Manual Git Submodule
 
 ```bash
-git submodule add -b main https://github.com/buiphucminhtam/forge17.git .antigravity/plugins/production-grade
-git add .gitmodules .antigravity/ && git commit -m "feat: add forge17 v7.0"
+git submodule add -b main https://github.com/buiphucminhtam/forgewright.git .antigravity/plugins/production-grade
+git add .gitmodules .antigravity/ && git commit -m "feat: add forgewright v7.2"
 ```
 
 ### Option C: Standalone Clone
 
 ```bash
-git clone https://github.com/buiphucminhtam/forge17.git
+git clone https://github.com/buiphucminhtam/forgewright.git
 ```
 
 Then say: *"Build a production-grade SaaS for [your idea]"* — or *"Build a game with Unity"* — or *"Help me think about [your idea]"* if you want the Polymath co-pilot first.
+
+> **Note:** This repo was formerly named `forge17`. All existing submodule references will continue to work via GitHub redirect.
 
 ### Updating
 
@@ -126,7 +137,7 @@ Then say: *"Build a production-grade SaaS for [your idea]"* — or *"Build a gam
 
 ## For Antigravity Users
 
-Forge17 is self-discovering. Once installed, Antigravity reads `AGENTS.md` on every new chat and automatically routes your requests through the 47-skill pipeline.
+Forgewright is self-discovering. Once installed, Antigravity reads `AGENTS.md` on every new chat and automatically routes your requests through the 47-skill pipeline.
 
 **Available workflows:**
 
@@ -189,8 +200,8 @@ The orchestrator auto-classifies your request and routes to the right skills:
 | **solution-architect** | ADRs, API contracts (OpenAPI 3.1), data models, architecture decisions |
 | **software-engineer** | TDD-first, clean architecture — handlers → services → repositories |
 | **frontend-engineer** | Design system, components, pages, a11y, RSC, PWA, animations |
-| **qa-engineer** | Full pyramid: unit, integration, E2E, Playwright, Midscene vision, k6 performance |
-| **security-engineer** | STRIDE, OWASP Top 10, auth audit, PII, supply chain, AI security, runtime threat detection |
+| **qa-engineer** | Phase 0 technique assessment + full pyramid: unit, integration, E2E, Playwright, Midscene vision, Page Agent DOM, k6 performance |
+| **security-engineer** | STRIDE, OWASP Top 10, auth audit, PII, supply chain, AI security, LLM data pipeline safety, runtime threat detection |
 | **code-reviewer** | Architecture conformance, code quality, performance, test quality, git workflow |
 | **devops** | Docker, Terraform, CI/CD, monitoring, branch strategy |
 | **sre** | SLOs, error budgets, chaos engineering, runbooks, capacity planning |
@@ -201,7 +212,7 @@ The orchestrator auto-classifies your request and routes to the right skills:
 | **mobile-tester** | Plug-and-play AI testing on Android/iOS real devices via Midscene.js |
 | **api-designer** | REST/GraphQL API design, endpoints, error taxonomy |
 | **database-engineer** | Schema design, migrations, query optimization |
-| **debugger** | Bug investigation, root cause analysis, regression testing |
+| **debugger** | Bug investigation, ReAct structured reasoning, root cause analysis, regression testing |
 | **prompt-engineer** | Prompt design, evaluation harness, optimization, guardrails |
 | **project-manager** | Sprint planning, velocity tracking, risk management, stakeholder comms |
 
@@ -381,11 +392,12 @@ CEO Agent (Orchestrator)
 | **4 game engines** | Unity, Unreal Engine, Godot, Roblox |
 | **XR platforms** | Quest, Vision Pro, WebXR, PCVR |
 | **Research Intelligence** | NotebookLM MCP — zero-hallucination, citation-backed |
+| **Smart Test Selection** | Phase 0: auto-assess target → recommend Playwright / Midscene / Page Agent |
 | **Vision Testing** | Midscene.js — AI-powered, cross-platform (web + Android + iOS) |
 | **Go-to-Market** | SEO, AEO/GEO, copywriting, campaigns, funnel CRO, A/B testing |
 | **Parallel dispatch** | Git worktree-based with anti-hallucination pipeline |
 | **3 approval gates** | Everything between gates is fully autonomous |
-| **12 shared protocols** | UX, input validation, tool efficiency, conflict resolution, task contracts, project onboarding, session lifecycle, quality gate, brownfield safety, quality dashboard |
+| **13 shared protocols** | UX, input validation, tool efficiency, conflict resolution, task contracts, project onboarding, session lifecycle, quality gate, brownfield safety, quality dashboard, graceful failure |
 | **Quality scoring** | 0-100 per-skill scoring with A-F grades, cross-session trending |
 | **Persistent memory** | TF-IDF search, auto-refresh, lifecycle hooks — survives session resets |
 | **4 engagement modes** | Express, Standard, Thorough, Meticulous |
@@ -521,7 +533,7 @@ Each domain has one authority. No overlap, no contradictions.
 
 ## FAQ
 
-**How many skills does Forge17 have?**
+**How many skills does Forgewright have?**
 47 specialized skills covering requirements analysis, software engineering, game development (Unity, Unreal, Godot, Roblox), XR (AR/VR/MR), AI/ML, data engineering, accessibility, UX research, and go-to-market.
 
 **Can it build complete games?**
@@ -531,7 +543,7 @@ Yes. The Game Build mode orchestrates game-specific skills: Game Designer → En
 Yes. Every skill: write, build, test, debug, fix. No stubs. No TODOs.
 
 **Can I use it on existing projects?**
-Yes. Run `/onboard` first — Forge17 will analyze your project, learn your coding patterns, and create a safety net (git branch + test baseline). Then run any mode: `"add feature"`, `"harden"`, `"write tests"`. Existing tests are verified after every change.
+Yes. Run `/onboard` first — Forgewright will analyze your project, learn your coding patterns, and create a safety net (git branch + test baseline). Then run any mode: `"add feature"`, `"harden"`, `"write tests"`. Existing tests are verified after every change.
 
 **Is NotebookLM MCP required?**
 No. Optional enhancement. When available, research quality gets zero hallucinations + citations.
@@ -544,6 +556,12 @@ TypeScript, Go, Python, Rust, Java, C++ (Unreal), C# (Unity), GDScript (Godot), 
 
 **Do I need all 47 skills?**
 No. The orchestrator only activates what you need. A backend API may use 8 skills. A full game may use 20+. The BA skill only activates when information gaps are detected.
+
+**What is Page Agent DOM testing?**
+A lightweight technique from Alibaba that converts DOM to text instead of screenshots. Works with text-only LLMs (like MiniMax), costs ~$0.001/step. QA Phase 0 auto-recommends it when appropriate.
+
+**What happened to forge17?**
+Renamed to Forgewright in v7.2. The GitHub redirect ensures existing submodule references continue to work.
 
 **How does parallel dispatch work?**
 Independent tasks run in git worktrees. A 7-step anti-hallucination validator checks each worker before merging.
@@ -568,8 +586,8 @@ MIT
 ---
 
 <p align="center">
-  <strong>Forge17 — 47 AI skills. 19 modes. 12 protocols. SaaS to AAA games. One prompt. Idea to market. ⭐</strong>
+  <strong>Forgewright — 47 AI skills. 19 modes. 13 protocols. SaaS to AAA games. One prompt. Idea to market. ⭐</strong>
 </p>
 <p align="center">
-  <em>Validate with zero assumptions. Research with zero hallucinations. Build games with Unity/Unreal/Godot/Roblox. Ship with quality scoring. Grow with data.</em>
+  <em>Validate with zero assumptions. Research with zero hallucinations. Test with smart technique selection. Build games with Unity/Unreal/Godot/Roblox. Ship with quality scoring. Grow with data.</em>
 </p>

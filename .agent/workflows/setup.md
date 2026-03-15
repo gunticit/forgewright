@@ -14,7 +14,7 @@ description: First-time setup of Forge17 as a git submodule in your project
 
 1. Add Forge17 as a git submodule:
 ```bash
-git submodule add -b main https://github.com/buiphucminhtam/forge17.git .antigravity/plugins/production-grade
+git submodule add -b main https://github.com/buiphucminhtam/forgewright.git .antigravity/plugins/production-grade
 ```
 
 2. Initialize the submodule:
