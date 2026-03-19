@@ -152,7 +152,7 @@ In addition to auto-reindex, manual re-indexing may be needed:
 - **After major refactoring** — run `gitnexus analyze --force`
 - **After adding new files/services** — run `gitnexus analyze` (incremental)
 - **Stale index warning** — run `gitnexus analyze`
-- **Auto-reindex (Claude Code)** — PostToolUse hooks reindex after commits
+- **Auto-reindex (IDE)** — PostToolUse hooks reindex after commits
 
 ## LLM Configuration (Optional)
 

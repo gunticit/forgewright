@@ -42,7 +42,7 @@ In the dashboard:
 
 For each AI agent you want to manage:
 1. Click "Add Agent"
-2. Choose agent type (OpenClaw, Claude Code, Codex, etc.)
+2. Choose agent type (OpenClaw, Antigravity, Codex, etc.)
 3. Set heartbeat schedule (e.g., every 5 minutes)
 4. Point working directory to your project (where Forgewright is installed)
 
@@ -68,7 +68,7 @@ Agents should:
 ```
 Paperclip Server (localhost:3100)     ← Business layer (goals, tickets, budget)
     ↓ assigns tickets
-AI Agents (OpenClaw, Claude Code)     ← Execution layer
+AI Agents (OpenClaw, Antigravity)     ← Execution layer
     ↓ reads AGENTS.md
 Forgewright (git submodule)           ← Engineering layer (48 skills)
     ↓ writes code
