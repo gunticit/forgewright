@@ -312,6 +312,44 @@ This skill runs as the **first skill in Game Build mode**, before any engine-spe
 
 ---
 
+## Visual Polish & Game Juice Requirements
+
+> **CRITICAL**: All games MUST include visual polish specifications. A game without VFX feels like a prototype.
+
+Every GDD must include a **Visual Feedback Table** mapping every player action to its visual/audio response:
+
+```markdown
+## Visual Feedback Specification
+| Player Action | Visual Effect | Audio Effect | Screen Effect |
+|---------------|--------------|--------------|---------------|
+| Destroy block | Particle burst (8-12 particles, block color) | match sfx | Camera shake (50ms, 0.005) |
+| Collect item | Sparkle trail (6 dots, gold) + floating "+25" text | combo sfx | None |
+| Level complete | Confetti celebration (40 multi-color rectangles) | victory sfx | Flash white (150ms) |
+| Take damage | Red flash overlay (200ms) + brief invulnerability | damage sfx | Camera shake (80ms, 0.01) |
+| Combo (3+) | Centered combo text scaling up + screen shake | combo sfx | Flash combo color (100ms) |
+| Game over | Multi-ring explosion (3 rings, 12 particles each) | gameover sfx | Slow fade to overlay |
+```
+
+### Required Visual Elements (ALL games)
+1. **Loading screen** — Animated brand splash with progress bar
+2. **Gradient backgrounds** — No flat solid colors; use multi-step gradients
+3. **Ambient particles** — Subtle floating dots/stars in background
+4. **Screen transitions** — Fade in/out between scenes (300ms minimum)
+5. **Button polish** — Hover scale (1.05x), press scale (0.95x), highlight shine
+6. **Score popups** — Floating text that drifts up and fades on scoring events
+7. **Destruction effects** — Particle burst when objects are destroyed/collected
+8. **Hit feedback** — Squash/stretch or flash on impact
+9. **Combo system** — Visual indicator for consecutive actions within time window
+10. **Premium typography** — Use 'Outfit' or similar from Google Fonts, NOT system defaults
+
+### Shared Libraries Available
+All games have access to these shared libraries via `@shared/lib/`:
+- `audio-manager.js` — Background music + SFX playback
+- `vfx-helpers.js` — Screen shake, particle burst, floating text, explosions, trails, confetti, etc.
+- `ui-helpers.js` — Buttons, panels, progress bars, overlays, score displays, toast notifications
+
+---
+
 ## Common Mistakes
 
 | # | Mistake | Why It Fails | What to Do Instead |
@@ -326,6 +364,10 @@ This skill runs as the **first skill in Game Build mode**, before any engine-spe
 | 8 | Session length assumptions without data | Mobile ≠ console ≠ PC session lengths | Research platform norms, target specific session length |
 | 9 | Ignoring player motivation types | One-dimensional design appeals to one Bartle type | Address multiple motivations: achievement, social, exploration |
 | 10 | No feedback specification | Game feels "floaty" and unresponsive | Specify VFX, SFX, haptic for every player action |
+| 11 | Using generateTexture primitives as final art | Games look like 2005 Flash prototypes | Use detailed generateTexture with gradients, highlights, shadows, glow |
+| 12 | Using emoji as game sprites | Renders differently per platform, looks amateur | Generate proper sprite textures with multiple graphics calls |
+| 13 | Flat solid color backgrounds | Screams "placeholder" to players | Use gradient backgrounds + ambient floating particles |
+| 14 | No loading screen or splash | No professional first impression | Create Boot scene with brand logo + animated progress bar |
 
 ## Handoff Protocol
 
@@ -356,3 +398,11 @@ This skill runs as the **first skill in Game Build mode**, before any engine-spe
 - [ ] Session flow with natural exit checkpoints
 - [ ] HUD layout with information hierarchy
 - [ ] Handoff notes complete for engine engineers
+- [ ] **Visual Feedback Table** — every player action mapped to VFX + SFX response
+- [ ] **Loading/Splash screen** specified with brand animation
+- [ ] **Menu screen** designed with gradient bg, game icon, polished button, best score
+- [ ] **Game Over screen** designed with stats, star rating, retry/menu buttons
+- [ ] **Sprite quality** — detailed textures (gradients, highlights, shadows), no plain rectangles
+- [ ] **Typography** — custom font specified (Outfit from Google Fonts recommended)
+- [ ] **Background design** — gradient + ambient particles or grid pattern
+- [ ] **Shared libraries** used: audio-manager, vfx-helpers, ui-helpers
