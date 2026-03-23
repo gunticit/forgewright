@@ -16,6 +16,8 @@ Manages the parallel execution of independent tasks in the Forgewright pipeline.
 
 **Max concurrent workers:** 4 (configurable via `MAX_WORKERS` env var)
 
+> **⚠️ Compatibility Note:** Parallel dispatch requires **Gemini CLI** with the ability to spawn multiple concurrent processes. In **Antigravity**, **Cursor**, **Claude Desktop**, or other single-session AI clients, the pipeline runs **sequentially** — this is by design. Sequential execution ensures deterministic output and is sufficient for most real-world tasks. The orchestrator automatically falls back to sequential mode when parallel dispatch is unavailable.
+
 ## When to Use
 
 The production-grade orchestrator invokes this skill when:
