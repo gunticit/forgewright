@@ -130,6 +130,13 @@ cmd_update() {
     # Update submodule to latest
     git submodule update --remote "$SUBMODULE_PATH"
 
+    echo ""
+    print_info "Re-initializing Code Intelligence (GitNexus)..."
+    npx --yes gitnexus analyze || print_warn "GitNexus analysis failed, skipping."
+    
+    print_info "Re-generating project MCP server..."
+    bash "$SUBMODULE_PATH/scripts/mcp-generate.sh" || print_warn "MCP generation failed, skipping."
+
     local new_version
     new_version=$(get_local_version)
 
