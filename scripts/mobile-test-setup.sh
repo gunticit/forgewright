@@ -68,7 +68,7 @@ print_report() {
   echo -e "${BOLD}${CYAN}║  ${PHONE} Forgewright Mobile Test Setup — Status Report         ║${NC}"
   echo -e "${BOLD}${CYAN}╠══════════════════════════════════════════════════════════╣${NC}"
 
-  local items="Node.js|npm|ADB|ANDROID_HOME|Android Device|Xcode CLI|WebDriverAgent|iOS Simulator|@midscene/android|@midscene/ios|API Key (.env)|Test Directory"
+  local items="Node.js|npm|Appium|ADB|ANDROID_HOME|Android Device|Appium uiautomator2|Xcode CLI|WebDriverAgent|iOS Simulator|Appium xcuitest|@midscene/android|@midscene/ios|WebdriverIO|API Key (.env)|Test Directory"
   IFS='|' read -ra KEYS <<< "$items"
 
   for key in "${KEYS[@]}"; do
@@ -150,6 +150,26 @@ if command_exists npm; then
 else
   fail "npm not found (should come with Node.js)"
   report_status "npm" "NOT FOUND"
+fi
+
+# ── Appium ───────────────────────────────────────────────────────────────────
+if command_exists appium; then
+  APPIUM_VER=$(appium -v 2>/dev/null | head -1)
+  ok "Appium $APPIUM_VER"
+  report_status "Appium" "OK ($APPIUM_VER)"
+else
+  fail "Appium not found"
+  report_status "Appium" "NOT FOUND"
+  if ! $CHECK_ONLY; then
+    info "Installing Appium globally..."
+    npm install -g appium 2>/dev/null && {
+      ok "Appium installed"
+      report_status "Appium" "Installed (just now)"
+    } || {
+      warn "Failed to install Appium globally. Run: sudo npm install -g appium"
+      report_status "Appium" "INSTALL FAILED"
+    }
+  fi
 fi
 
 # ============================================================================
@@ -266,17 +286,40 @@ if $ANDROID_ONLY; then
         fail "Failed to install @midscene/android"
         report_status "@midscene/android" "INSTALL FAILED"
       }
-    else
-      report_status "@midscene/android" "SKIP (no package.json, check-only)"
+      else
+        report_status "@midscene/android" "SKIP (no package.json, check-only)"
+      fi
     fi
-  fi
 
-else
-  report_status "ADB" "SKIP (--ios mode)"
-  report_status "ANDROID_HOME" "SKIP"
-  report_status "Android Device" "SKIP"
-  report_status "@midscene/android" "SKIP"
-fi
+    # ── Appium UIAutomator2 Driver ─────────────────────────────────────────────
+    if command_exists appium; then
+      if appium driver list --installed 2>/dev/null | grep -q "uiautomator2"; then
+        ok "Appium UIAutomator2 Driver installed"
+        report_status "Appium uiautomator2" "OK"
+      else
+        report_status "Appium uiautomator2" "NOT INSTALLED"
+        if ! $CHECK_ONLY; then
+          info "Installing Appium UIAutomator2 Driver..."
+          appium driver install uiautomator2 2>/dev/null && {
+            ok "UIAutomator2 installed"
+            report_status "Appium uiautomator2" "Installed (just now)"
+          } || {
+            fail "Failed to install UIAutomator2"
+            report_status "Appium uiautomator2" "INSTALL FAILED"
+          }
+        fi
+      fi
+    else
+      report_status "Appium uiautomator2" "SKIP (no appium)"
+    fi
+
+  else
+    report_status "ADB" "SKIP (--ios mode)"
+    report_status "ANDROID_HOME" "SKIP"
+    report_status "Android Device" "SKIP"
+    report_status "Appium uiautomator2" "SKIP"
+    report_status "@midscene/android" "SKIP"
+  fi
 
 # ============================================================================
 # PHASE 3: iOS Setup (macOS only)
@@ -360,11 +403,35 @@ if $IOS_ONLY; then
     else
       report_status "@midscene/ios" "SKIP (no package.json)"
     fi
+
+    # ── Appium XCUITest Driver ─────────────────────────────────────────────
+    if command_exists appium; then
+      if appium driver list --installed 2>/dev/null | grep -q "xcuitest"; then
+        ok "Appium XCUITest Driver installed"
+        report_status "Appium xcuitest" "OK"
+      else
+        report_status "Appium xcuitest" "NOT INSTALLED"
+        if ! $CHECK_ONLY; then
+          info "Installing Appium XCUITest Driver..."
+          appium driver install xcuitest 2>/dev/null && {
+            ok "XCUITest installed"
+            report_status "Appium xcuitest" "Installed (just now)"
+          } || {
+            fail "Failed to install XCUITest"
+            report_status "Appium xcuitest" "INSTALL FAILED"
+          }
+        fi
+      fi
+    else
+      report_status "Appium xcuitest" "SKIP (no appium)"
+    fi
+
   fi
 else
   report_status "Xcode CLI" "SKIP (--android mode)"
   report_status "WebDriverAgent" "SKIP"
   report_status "iOS Simulator" "SKIP"
+  report_status "Appium xcuitest" "SKIP"
   report_status "@midscene/ios" "SKIP"
 fi
 
@@ -424,6 +491,51 @@ if $CHECK_ONLY; then
   fi
 else
   mkdir -p "$TEST_DIR/android" "$TEST_DIR/ios" "$TEST_DIR/reports"
+
+  # ── WebdriverIO Packages ───────────────────────────────────────────────
+  if [[ -f "package.json" ]]; then
+    if grep -q "webdriverio" package.json 2>/dev/null; then
+      ok "WebdriverIO already in package.json"
+      report_status "WebdriverIO" "Installed"
+    else
+      report_status "WebdriverIO" "NOT INSTALLED"
+      if ! $CHECK_ONLY; then
+        info "Installing WebdriverIO dependencies..."
+        npm install --save-dev webdriverio @wdio/cli @wdio/local-runner @wdio/mocha-framework @wdio/spec-reporter 2>/dev/null && {
+          ok "WebdriverIO installed"
+          report_status "WebdriverIO" "Installed (just now)"
+        } || {
+          fail "Failed to install WebdriverIO"
+          report_status "WebdriverIO" "INSTALL FAILED"
+        }
+      fi
+    fi
+  fi
+
+  # ── WebdriverIO Config ─────────────────────────────────────────────────
+  if [[ ! -f "wdio.conf.ts" ]] && ! $CHECK_ONLY; then
+    cat > "wdio.conf.ts" << 'WDIOOF'
+export const config: WebdriverIO.Config = {
+    runner: 'local',
+    tsNodeOpts: { project: './tests/e2e/mobile/tsconfig.json' },
+    specs: ['./tests/e2e/mobile/**/appium-*.test.ts'],
+    maxInstances: 1,
+    capabilities: [{
+        platformName: 'Android',
+        'appium:automationName': 'UiAutomator2',
+        // 'appium:app': './path/to/app.apk', 
+    }],
+    logLevel: 'info',
+    waitforTimeout: 10000,
+    connectionRetryTimeout: 120000,
+    connectionRetryCount: 3,
+    framework: 'mocha',
+    reporters: ['spec'],
+    mochaOpts: { ui: 'bdd', timeout: 60000 }
+};
+WDIOOF
+    ok "Created webdriver.io config: wdio.conf.ts"
+  fi
 
   # ── Android Demo Test ──────────────────────────────────────────────────
   if $ANDROID_ONLY && [[ ! -f "$TEST_DIR/android/demo.test.ts" ]]; then
@@ -503,6 +615,25 @@ ATEST
     ok "Created Android demo test: $TEST_DIR/android/demo.test.ts"
   fi
 
+  # ── Android Appium Demo Test ───────────────────────────────────────────
+  if $ANDROID_ONLY && [[ ! -f "$TEST_DIR/android/appium-demo.test.ts" ]]; then
+    cat > "$TEST_DIR/android/appium-demo.test.ts" << 'AATEST'
+/**
+ * Forgewright — Android Appium WebdriverIO Demo
+ * Deterministic testing for the HARDEN phase.
+ * Run with: npx wdio wdio.conf.ts
+ */
+describe('Android Hardware Tests', () => {
+    it('should launch and verify basic UI elements', async () => {
+        // Appium requires selectors instead of natural language
+        // Example: const btn = await $('~accessibilityId');
+        console.log('Appium demo test initialized.');
+    });
+});
+AATEST
+    ok "Created Android Appium demo test: $TEST_DIR/android/appium-demo.test.ts"
+  fi
+
   # ── iOS Demo Test ──────────────────────────────────────────────────────
   if $IOS_ONLY && $IS_MACOS && [[ ! -f "$TEST_DIR/ios/demo.test.ts" ]]; then
     cat > "$TEST_DIR/ios/demo.test.ts" << 'ITEST'
@@ -558,6 +689,24 @@ main().catch((err) => {
 });
 ITEST
     ok "Created iOS demo test: $TEST_DIR/ios/demo.test.ts"
+  fi
+
+  # ── iOS Appium Demo Test ───────────────────────────────────────────────
+  if $IOS_ONLY && $IS_MACOS && [[ ! -f "$TEST_DIR/ios/appium-demo.test.ts" ]]; then
+    cat > "$TEST_DIR/ios/appium-demo.test.ts" << 'IATEST'
+/**
+ * Forgewright — iOS Appium WebdriverIO Demo
+ * Deterministic testing for the HARDEN phase.
+ * Run with: npx wdio wdio.conf.ts
+ */
+describe('iOS Hardware Tests', () => {
+    it('should launch and verify basic UI elements', async () => {
+        // Appium requires selectors instead of natural language
+        console.log('Appium demo test initialized.');
+    });
+});
+IATEST
+    ok "Created iOS Appium demo test: $TEST_DIR/ios/appium-demo.test.ts"
   fi
 
   # ── tsconfig for tests ─────────────────────────────────────────────────
