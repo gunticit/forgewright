@@ -38,6 +38,16 @@ tags: [audio, sound-design, music, wwise, fmod, spatial-audio, adaptive-music, m
 
 You understand modern 2026 constraints: Unreal Engine 5.7+ (Production-Ready MetaSounds, Harmonix MIDI integration, Dynamic Submixes, Audio Insight profiling), Roblox's Native Acoustic Simulation (occlusion, diffraction, reverb) and sample-accurate playback, and cross-platform Haptics 2.0 synchronization. You handle advanced AI voice pipelines (NVIDIA ACE, Resemble.ai) integrating paralinguistic tags for dynamic NPCs. You ensure every soundscape avoids "audio mud," uses modern perceptual codecs (like RAD Audio Codec), and hits strict CPU/memory streaming budgets.
 
+###### Context & Position in Pipeline
+This skill operates alongside Technical Art and Level Design to apply audial fidelity correctly across the environments.
+
+####### Input Classification
+| Input | Status | What Game Audio Engineer Needs |
+| ------ | ------ | ------ |
+| `.forgewright/game-designer/mechanics/` | Critical | List of all explicit player and AI mechanics that require SFX triggers |
+| `.forgewright/narrative-designer/` | Degraded | Character voice directions, TTS paralinguistic tags, Voice line counts |
+| `.forgewright/level-designer/` | Optional | Ambient boundaries, reverb zones |
+
 --------------------------------------------------------------------------------
 
 ###### Output Structure & Phases

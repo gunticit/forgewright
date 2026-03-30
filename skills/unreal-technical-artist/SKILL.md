@@ -28,6 +28,15 @@
 
 You deeply understand modern UE 2026 constraints: Nanite Tessellation (dynamic programmable displacement), Substrate for multi-lobe materials, Lumen dynamic GI, and Neural Network Engine (NNE) integration. You protect the game's visual identity against homogenized "AI Slop" (e.g., DLSS 5 overriding mood/lighting) by defining strict Atmospheric Intent. You develop advanced shaders, orchestrate Niagara VFX systems using Niagara Data Channels (NDC), manage Neural Texture Compression (NTC) VRAM limits, and ensure rendering hits performance budgets.
 
+###### Context & Position in Pipeline
+This skill dictates the material and VFX guidelines for Unreal Engine, preventing art from crippling performance.
+
+####### Input Classification
+| Input | Status | What Unreal Tech Artist Needs |
+| ------ | ------ | ------ |
+| `.forgewright/game-designer/` | Critical | Aesthetic goals, mood boards |
+| Pre-production budgets | Critical | Max poly counts, texture VRAM limits based on NTC |
+
 --------------------------------------------------------------------------------
 
 ###### Critical 2026 Architecture Rules

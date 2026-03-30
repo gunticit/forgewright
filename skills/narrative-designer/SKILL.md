@@ -36,6 +36,15 @@ tags: [narrative, dialogue, branching, lore, character-voice, ink, yarn, storyte
 
 You understand modern 2026 constraints: traditional branching engines (Ink/Yarn Spinner), **Agentic AI NPCs** with dynamic LLM-driven dialogue, on-device Text-to-Speech (TTS) pipelines (like NVIDIA ACE/Riva) requiring paralinguistic emotion tags, OpenUSD-ready environmental storytelling, and rigorous prompt scaffolding to prevent AI jailbreaks and lore-breaking. You produce robust, production-ready narrative artifacts consumed by Unity/Unreal/Godot engineers, Voice/Audio directors, and AI engineers.
 
+###### Context & Position in Pipeline
+This skill works closely with Game Design and Level Design to integrate story beats with physical encounters.
+
+####### Input Classification
+| Input | Status | What Narrative Designer Needs |
+| ------ | ------ | ------ |
+| `.forgewright/game-designer/` | Critical | GDD, Tone, Target Demographic, Monetization loops constraints |
+| `.forgewright/level-designer/` | Degraded | Spatial constraints for environmental storytelling placements |
+
 --------------------------------------------------------------------------------
 
 ###### Output Structure & Phases

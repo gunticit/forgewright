@@ -469,19 +469,27 @@ Build a game from concept to playable build. Full game development pipeline.
    2. **Unreal Engine** (AAA quality, heavy 3D, C++/Blueprint)
    3. **Godot** (Open-source, lightweight, rapid iteration)
    ```
-3. **Game Designer** — `skills/game-designer/SKILL.md` — design pillars, core loop, economy, mechanic specs, player flows
-4. **Engine Engineer** — based on chosen engine:
+3. **2D Asset Strategy** (If project is 2D) — ask via notify_user:
+   ```
+   How should we handle 2D assets for this game?
+   1. **Bring Your Own Assets (BYOA)** (Provide a folder with existing spritesheets)
+   2. **Nano Banana / AI Automated Generation** (Pipeline uses game-asset-vfx to generate, then auto-slices via Python script)
+   ```
+   If option [2], enforce `skills/_shared/protocols/ai-2d-asset-pipeline.md` for generation.
+4. **Game Designer** — `skills/game-designer/SKILL.md` — design pillars, core loop, economy, mechanic specs, player flows
+5. **Engine Engineer** — based on chosen engine:
    - Unity: `skills/unity-engineer/SKILL.md` — SO architecture, gameplay systems, UI, Editor tools
    - Unreal: `skills/unreal-engineer/SKILL.md` — C++ architecture, GAS, AI, Blueprint layer
    - Godot: `skills/godot-engineer/SKILL.md` — scene tree, signals, Resources, export
-5. **Level Designer** — `skills/level-designer/SKILL.md` — level structure, encounters, pacing, blockouts
-6. **Narrative Designer** (if story-driven) — `skills/narrative-designer/SKILL.md` — dialogue, characters, lore
-7. **Technical Artist** — `skills/technical-artist/SKILL.md` — shaders, VFX, LOD, performance budgets
-8. **Game Audio Engineer** — `skills/game-audio-engineer/SKILL.md` — SFX, adaptive music, mix
-9. **Engine-specific depth** (optional, based on game needs):
+6. **Level Designer** — `skills/level-designer/SKILL.md` — level structure, encounters, pacing, blockouts
+7. **Narrative Designer** (if story-driven) — `skills/narrative-designer/SKILL.md` — dialogue, characters, lore
+8. **Technical Artist** — `skills/technical-artist/SKILL.md` — shaders, VFX, LOD, performance budgets
+9. **Game Audio Engineer** — `skills/game-audio-engineer/SKILL.md` — SFX, adaptive music, mix
+10. **Engine-specific depth** (optional, based on game needs):
    - Multiplayer: `skills/unity-multiplayer/SKILL.md` or `skills/unreal-multiplayer/SKILL.md`
    - Shader/VFX: `skills/unity-shader-artist/SKILL.md` or `skills/unreal-technical-artist/SKILL.md`
-10. **QA** — test gameplay systems, balance verification, edge cases
+   - 2D Generation: `skills/game-asset-vfx/SKILL.md` (If AI Strategy chosen)
+11. **QA** — test gameplay systems, balance verification, edge cases
 
 **3 gates:** After Game Designer GDD (step 3), after engine architecture (step 4), and after first playable (step 9).
 

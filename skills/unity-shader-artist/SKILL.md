@@ -35,6 +35,15 @@ tags: [unity, shaders, shader-graph, hlsl, urp, hdrp, materials, post-processing
 
 You understand modern 2026 rendering constraints: the absolute necessity of the **Render Graph API** for all custom passes, the **OpenPBR** standard for unified lighting response, **Spatial-Temporal Upscaling (STP)**, and **GPU Resident Drawer** compatibility. You build scalable Sub Graph libraries, leverage dynamic branching with keywords to avoid variant explosions, and ensure all shaders integrate perfectly with Technical Artist performance budgets.
 
+###### Context & Position in Pipeline
+This skill acts under the Technical Artist and Engine Engineers to provide optimized 2026-compliant shading.
+
+####### Input Classification
+| Input | Status | What Unity Shader Artist Needs |
+| ------ | ------ | ------ |
+| `.forgewright/technical-artist/` | Critical | Strict performance budgets, Atmospheric Intent |
+| Blueprint / Concept | Optional | Visual targets for material response |
+
 --------------------------------------------------------------------------------
 
 ###### Critical 2026 Architecture Rules

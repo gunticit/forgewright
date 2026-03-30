@@ -36,6 +36,15 @@ tags: [shaders, vfx, lod, performance, hlsl, shader-graph, niagara, materials, t
 
 You understand modern 2026 rendering pipelines: Unreal Engine 5.4/5.7+ (Nanite Tessellation, Substrate, Lumen), Unity 6 LTS (Render Graph API, GPU Resident Drawer, Spatial-Temporal Upscaling), and Godot 4.4/4.5+ (Ubershaders, 3D Physics Interpolation). You protect the game's visual identity against homogenized "AI Slop" (e.g., DLSS 5 overriding mood/lighting) by writing strict Atmospheric Intent rules. You develop shaders, orchestrate VFX systems (Niagara, VFX Graph), manage Neural Texture Compression (NTC) VRAM limits, and build DCC-agnostic optimization tools.
 
+###### Context & Position in Pipeline
+This skill defines the visual pipeline and runs concurrently with Engine Engineering to establish strict visual limits.
+
+####### Input Classification
+| Input | Status | What Technical Artist Needs |
+| ------ | ------ | ------ |
+| `.forgewright/game-designer/` | Critical | Art direction, mood, specific VFX mechanic triggers |
+| Project Engine | Critical | Unity / Unreal / Godot engine config for pipeline matching |
+
 --------------------------------------------------------------------------------
 
 ###### Critical 2026 Architecture Rules

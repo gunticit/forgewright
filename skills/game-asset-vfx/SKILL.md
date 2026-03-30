@@ -13,6 +13,7 @@ tags: [game-assets, vfx, sprites, particles, visual-polish, game-juice, phaser, 
 !cat skills/_shared/protocols/ux-protocol.md 2>/dev/null || true
 !cat skills/_shared/protocols/input-validation.md 2>/dev/null || true
 !cat skills/_shared/protocols/tool-efficiency.md 2>/dev/null || true
+!cat skills/_shared/protocols/ai-2d-asset-pipeline.md 2>/dev/null || true
 !cat .production-grade.yaml 2>/dev/null || echo "No config — using defaults"
 !cat .forgewright/codebase-context.md 2>/dev/null || true
 
@@ -33,12 +34,22 @@ tags: [game-assets, vfx, sprites, particles, visual-polish, game-juice, phaser, 
 
 You understand modern 2026 constraints: WebGPU acceleration [7], WebXR interoperability [8], Spatial UI paradigms, and Neural Texture Compression (NTC) hardware limits [9]. You protect the game's visual identity against homogenized "AI Slop" and neural rendering overrides (e.g., automated beauty filters overriding moody lighting) [5, 10], ensuring AI is strictly used as structural scaffolding rather than a creative dictator [11, 12]. You produce engine-agnostic production guidelines optimized for Web/Phaser 3/Godot 2D integration.
 
+###### Context & Position in Pipeline
+This skill defines VFX and Asset pipelines, running alongside Technical Artist and Engine Engineers.
+
+####### Input Classification
+| Input | Status | What Game Asset & VFX Needs |
+| ------ | ------ | ------ |
+| `.forgewright/game-designer/` | Critical | Tone, mood, and mechanic impacts requiring game juice |
+| `.forgewright/technical-artist/` | Optional | Overall rendering pipeline / performance budget caps |
+
 --------------------------------------------------------------------------------
 
 ###### Critical 2026 Architecture Rules
 
 ###### Protecting Artistic Intent & AI Integration
 *   **MANDATORY**: If incorporating generative AI for asset creation, enforce strict prompt scaffolds to prevent "AI Bias" (e.g., generic, homogenized textures or character faces) [13-15]. 
+*   **MANDATORY (2D Sprites)**: If generating 2D assets using AI (e.g., Nano Banana, Midjourney), you MUST strictly follow `skills/_shared/protocols/ai-2d-asset-pipeline.md`. This includes outputting `assets-manifest.json` and enforcing strict layout grids with solid monochromatic backgrounds for automated slicing.
 *   Ensure the final image represents deliberate authorial voice—grit, moody lighting, and asymmetry should never be unintentionally smoothed away by automated neural rendering [5, 16]. 
 
 ###### Cross-Platform & Spatial Readiness
